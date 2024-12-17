@@ -79,7 +79,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         </button>
         <button
           onClick={closeMenu}
-          className='flex items-center justify-center text-accent bg-accentbg p-1 hover:bg-accentbghover rounded-lg   top-0 z-50 right-0'
+          className='flex items-center justify-center text-primary-500 bg-accentbg p-1 hover:bg-accentbghover rounded-lg   top-0 z-50 right-0'
         >
           <PanelTopClose />
         </button>
