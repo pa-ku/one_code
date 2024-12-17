@@ -59,7 +59,7 @@ export default function App() {
         ? ((e.clientX - containerRect.left) / containerRect.width) * 100
         : ((containerRect.right - e.clientX) / containerRect.width) * 100
 
-      const clampedWidth = Math.min(Math.max(newWith, 20), 80)
+      const clampedWidth = Math.min(Math.max(newWith, 20), 65)
       setLeftPanelWidth(clampedWidth)
     }
 
