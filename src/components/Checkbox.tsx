@@ -13,7 +13,7 @@ export default function Checkbox({
 }: CheckboxProps) {
   return (
     <>
-      <div className='relative'>
+      <div className='relative '>
         <input
           className='peer absolute h-full w-full cursor-pointer appearance-none'
           type='checkbox'

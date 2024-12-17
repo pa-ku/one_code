@@ -2,7 +2,7 @@ import {
   PanelTopClose,
   Play,
   RefreshCcw,
-  Save,
+  Cloud,
   ArrowLeftRight,
 } from 'lucide-react'
 import icon from '/onecode.webp'
@@ -39,13 +39,13 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           checked={invertLayout}
           onChange={(e) => setInvertLayout(e.target.checked)}
         >
-          <ArrowLeftRight className='size-4'></ArrowLeftRight> Invert Layout
+          <ArrowLeftRight className='size-4'></ArrowLeftRight> Invert
         </Checkbox>
         <Checkbox
           checked={saveCode}
           onChange={(e) => setSaveCode(e.target.checked)}
         >
-          <Save className='size-4'></Save> Save code
+          <Cloud className='size-4'></Cloud> StoreCode
         </Checkbox>
         <Checkbox
           checked={autoRun}

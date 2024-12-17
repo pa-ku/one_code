@@ -3,7 +3,6 @@ import { mosquetaDarkTheme } from '../assets/themes/mosqueta.theme'
 import { javascriptSnippets } from '../assets/snippets/javascript.snippets'
 
 export const handleEditorMount: OnMount = (editor, monaco) => {
-  // Registrar el tema personalizado
   monaco.editor.defineTheme('mosqueta-dark', mosquetaDarkTheme)
   monaco.editor.setTheme('mosqueta-dark')
 
