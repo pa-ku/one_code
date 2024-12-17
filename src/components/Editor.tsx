@@ -17,7 +17,7 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
     <div className='h-full relative flex flex-col'>
       <button
         onClick={openMenu}
-        className='bg-primay-500 p-1 mr-2 rounded-lg text-accent hover:bg-accentbg flex items-center justify-center absolute top-0 z-50 right-2'
+        className='bg-primay-500 p-1 mr-2 rounded-lg text-accent hover:bg-accentbg flex items-center justify-center absolute top-2 z-50 right-2'
       >
         <PanelBottomClose />
       </button>
