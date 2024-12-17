@@ -74,12 +74,12 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           onClick={onExecute}
           className='flex items-center text-lg gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
         >
-          <Play size={16} />
+          <Play size={20} />
           Run
         </button>
         <button
           onClick={closeMenu}
-          className='flex items-center justify-center text-accent bg-accentbg p-1 hover:bg-accentbg rounded-lg   top-0 z-50 right-0'
+          className='flex items-center justify-center text-accent bg-accentbg p-1 hover:bg-accentbghover rounded-lg   top-0 z-50 right-0'
         >
           <PanelTopClose />
         </button>
