@@ -4,6 +4,8 @@ import {
   RefreshCcw,
   Cloud,
   ArrowLeftRight,
+  ListOrdered,
+  LayoutGrid,
 } from 'lucide-react'
 import icon from '/onecode.webp'
 import { useConfig } from '../context/ConfigContext'
@@ -22,6 +24,8 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     openConfig,
     closeMenu,
     setInvertLayout,
+    setLineNum,
+    lineNum,
     invertLayout,
   } = useConfig()
 
@@ -35,6 +39,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <img src={icon} alt='' className='size-full object-contain' />
       </p>
       <div className=' flex items-center gap-4'>
+        <p className='text-background-100 text-xs'>Layout</p>
         <Checkbox
           checked={invertLayout}
           onChange={(e) => setInvertLayout(e.target.checked)}
@@ -42,6 +47,15 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         >
           <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
+        <div className='h-full'></div>
+        <Checkbox
+          checked={lineNum}
+          onChange={(e) => setLineNum(e.target.checked)}
+          onHover='Line Numbers'
+        >
+          <ListOrdered size={20}></ListOrdered>
+        </Checkbox>
+
         <Checkbox
           checked={saveCode}
           onChange={(e) => setSaveCode(e.target.checked)}

@@ -1,7 +1,7 @@
 import MonacoEditor from '@monaco-editor/react'
 import { useConfig } from '../context/ConfigContext'
 import { EditorHeader } from './EditorHeader'
-import { PanelBottomClose } from 'lucide-react'
+import { PanelTopOpen } from 'lucide-react'
 import { handleEditorMount } from '../utils/handleEditorMount'
 
 interface EditorProps {
@@ -11,7 +11,7 @@ interface EditorProps {
 }
 
 export function Editor({ value, onChange, onExecute }: EditorProps) {
-  const { openConfig, openMenu } = useConfig()
+  const { openConfig, openMenu, lineNum } = useConfig()
 
   return (
     <div className='h-full relative flex flex-col'>
@@ -21,7 +21,7 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
           openConfig ? 'scale-0' : ''
         }`}
       >
-        <PanelBottomClose />
+        <PanelTopOpen />
       </button>
       <EditorHeader onExecute={onExecute} />
       <div
@@ -40,7 +40,7 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
             options={{
               minimap: { enabled: false },
               fontSize: 18,
-              lineNumbers: 'on',
+              lineNumbers: lineNum ? 'on' : 'off',
               roundedSelection: false,
               scrollBeyondLastLine: false,
               automaticLayout: true,
