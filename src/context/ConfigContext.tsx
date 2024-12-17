@@ -11,6 +11,8 @@ type ConfigContextType = {
   closeMenu: () => void
   openConfig: boolean
   setSaveCode: (value: boolean) => void
+  setInvertLayout: (value: boolean) => void
+  invertLayout: boolean
   saveCode: boolean
 }
 
@@ -27,9 +29,10 @@ type ConfigProviderProps = {
 }
 
 export function ConfigProvider({ children }: ConfigProviderProps) {
-  const [openConfig, setOpenConfig] = useState(false)
+  const [openConfig, setOpenConfig] = useLocalStorage('configOpen', false)
   const [autoRun, setAutoRun] = useLocalStorage('autoRun', true)
   const [saveCode, setSaveCode] = useLocalStorage('saveCode', true)
+  const [invertLayout, setInvertLayout] = useLocalStorage('layout', false)
 
   function closeMenu() {
     setOpenConfig(false)
@@ -49,6 +52,8 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
         openConfig,
         saveCode,
         setSaveCode,
+        setInvertLayout,
+        invertLayout,
       }}
     >
       {children}

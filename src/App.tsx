@@ -13,8 +13,8 @@ export default function App() {
   const { history, addToHistory, clearHistory } = useConsoleHistory()
   const [leftPanelWidth, setLeftPanelWidth] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
-  const debouncedCode = useDebounce(code, 1000)
-  const { autoRun } = useConfig()
+  const debouncedCode = useDebounce(code, 300)
+  const { autoRun, invertLayout } = useConfig()
 
   const executeCode = useCallback(
     (input: string) => {
@@ -86,7 +86,9 @@ export default function App() {
     <div className='h-screen w-screen relative  bg-gray-900 text-white overflow-hidden'>
       <div
         id='panels-container'
-        className='flex w-full h-full   select-none'
+        className={`flex w-full h-full    select-none ${
+          invertLayout ? 'flex-row' : 'flex-row-reverse'
+        }`}
         style={{ userSelect: 'none' }}
       >
         <div
