@@ -25,3 +25,11 @@
   color: white;
   background: #5e4266;
 }
+
+::-webkit-scrollbar {
+  background-color: #444;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #111;
+}
