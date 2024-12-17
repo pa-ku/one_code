@@ -23,12 +23,13 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
       </button>
       <EditorHeader onExecute={onExecute} />
       <div
-        className={`flex-1 py-5  bg-background-400 duration-500 ${
-          openConfig && 'pt-16 '
+        className={`flex-1 bg-background-400 duration-500 ${
+          openConfig && 'pt-[3em]'
         }`}
       >
         <MonacoEditor
           height='100%'
+          className=''
           defaultLanguage='javascript'
           theme='mosqueta-dark'
           value={value}
