@@ -1,12 +1,25 @@
 
-
 export const javascriptSnippets = (monaco) => [
     {
-        label: "console.log",
+        label: "clg",
         kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "console.log('${1:mensaje}');",
+        insertText: "console.log(${1});",
         insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
         documentation: "Inserta un console.log() para debuggear."
+    },
+    {
+        label: "setTimeout",
+        kind: monaco.languages.CompletionItemKind.Snippet,
+        insertText: "setTimeout(()=>{  },2000)",
+        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+        documentation: "Inserta un console.log() para debuggear."
+    },
+    {
+        label: "alert",
+        kind: monaco.languages.CompletionItemKind.Snippet,
+        insertText: "alert(${1});",
+        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+        documentation: "Inserta un alert() para debuggear."
     },
     {
         label: "function",
