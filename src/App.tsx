@@ -6,9 +6,10 @@ import { createCustomConsole } from './utils/customConsole'
 import { useDebounce } from './hooks/useDebounce'
 import { useConsoleHistory } from './hooks/useConsoleHistory'
 import { useConfig } from './context/ConfigContext'
+import useLocalStorage from 'use-local-storage'
 
 export default function App() {
-  const [code, setCode] = useState()
+  const [code, setCode] = useLocalStorage('code', '')
   const { history, addToHistory, clearHistory } = useConsoleHistory()
   const [leftPanelWidth, setLeftPanelWidth] = useState(50)
   const [isDragging, setIsDragging] = useState(false)

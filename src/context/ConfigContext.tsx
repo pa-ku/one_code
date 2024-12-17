@@ -10,6 +10,8 @@ type ConfigContextType = {
   openMenu: () => void
   closeMenu: () => void
   openConfig: boolean
+  setSaveCode: (value: boolean) => void
+  saveCode: boolean
 }
 
 export function useConfig(): ConfigContextType {
@@ -27,6 +29,7 @@ type ConfigProviderProps = {
 export function ConfigProvider({ children }: ConfigProviderProps) {
   const [openConfig, setOpenConfig] = useState(false)
   const [autoRun, setAutoRun] = useLocalStorage('autoRun', true)
+  const [saveCode, setSaveCode] = useLocalStorage('saveCode', true)
 
   function closeMenu() {
     setOpenConfig(false)
@@ -38,7 +41,15 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
 
   return (
     <ConfigContext.Provider
-      value={{ autoRun, setAutoRun, openMenu, closeMenu, openConfig }}
+      value={{
+        autoRun,
+        setAutoRun,
+        openMenu,
+        closeMenu,
+        openConfig,
+        saveCode,
+        setSaveCode,
+      }}
     >
       {children}
     </ConfigContext.Provider>
