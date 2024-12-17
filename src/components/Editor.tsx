@@ -13,6 +13,19 @@ interface EditorProps {
 export function Editor({ value, onChange, onExecute }: EditorProps) {
   const { openConfig, openMenu, lineNum } = useConfig()
 
+  const editorOptions = {
+    minimap: { enabled: false },
+    fontSize: 18,
+    lineNumbers: lineNum ? 'on' : 'off',
+    roundedSelection: false,
+    scrollBeyondLastLine: false,
+    automaticLayout: true,
+    wordWrap: 'on',
+    suggestOnTriggerCharacters: true,
+    snippetSuggestions: 'on',
+    tabSize: 2,
+  }
+
   return (
     <div className='h-full relative flex flex-col'>
       <button
@@ -32,19 +45,11 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
         <div className='flex-1 bg-background-400 duration-500'>
           <MonacoEditor
             height='100%'
-            className=''
             defaultLanguage='javascript'
             theme='mosqueta-dark'
             value={value}
             onChange={onChange}
-            options={{
-              minimap: { enabled: false },
-              fontSize: 18,
-              lineNumbers: lineNum ? 'on' : 'off',
-              roundedSelection: false,
-              scrollBeyondLastLine: false,
-              automaticLayout: true,
-            }}
+            options={editorOptions}
             onMount={handleEditorMount}
           />
         </div>
