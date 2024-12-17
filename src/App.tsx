@@ -54,10 +54,12 @@ export default function App() {
       if (!container) return
 
       const containerRect = container.getBoundingClientRect()
-      const newLeftWidth =
-        ((e.clientX - containerRect.left) / containerRect.width) * 100
 
-      const clampedWidth = Math.min(Math.max(newLeftWidth, 20), 80)
+      const newWith = invertLayout
+        ? ((e.clientX - containerRect.left) / containerRect.width) * 100
+        : ((containerRect.right - e.clientX) / containerRect.width) * 100
+
+      const clampedWidth = Math.min(Math.max(newWith, 20), 80)
       setLeftPanelWidth(clampedWidth)
     }
 
