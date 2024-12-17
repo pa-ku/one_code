@@ -2,13 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+@font-face {
+  font-family: 'Cascadia code';
+  src: url(./assets/fonts/CascadiaMono.woff2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  font-family: 'Cascadia code';
 }
 
 #root {
   height: 100vh;
   width: 100vw;
+}
+
+/* SELECTION */
+::selection {
+  color: white;
+  background: #5e4266;
 }
