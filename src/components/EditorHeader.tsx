@@ -38,18 +38,21 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <Checkbox
           checked={invertLayout}
           onChange={(e) => setInvertLayout(e.target.checked)}
+          onHover='Invert Layot'
         >
           <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
         <Checkbox
           checked={saveCode}
           onChange={(e) => setSaveCode(e.target.checked)}
+          onHover='Save Localy'
         >
           <Cloud size={20}></Cloud>
         </Checkbox>
         <Checkbox
           checked={autoRun}
           onChange={(e) => setAutoRun(e.target.checked)}
+          onHover='Auto run'
         >
           <RefreshCcw size={20} />
         </Checkbox>
