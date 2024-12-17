@@ -27,7 +27,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
 
   return (
     <div
-      className={`absolute top-0 px-4 -translate-y-full duration-500 z-50 py-2 border-b bg-background-500 w-full border-gray-700 flex items-center justify-between ${
+      className={`absolute top-0 px-4 -translate-y-full duration-500 z-50 h-12 border-b bg-background-500 w-full border-gray-700 flex items-center justify-between ${
         openConfig && 'translate-y-0 '
       }`}
     >

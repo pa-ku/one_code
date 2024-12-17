@@ -26,7 +26,7 @@ export default function Checkbox({
           {children}
         </p>
         {onHover && (
-          <p className='peer-hover:opacity-100 opacity-0 duration-300 absolute -bottom-12 border-background-100 border w-max bg-black rounded-lg p-2 '>
+          <p className='pointer-events-none peer-hover:opacity-100 opacity-0 duration-300 absolute -bottom-12 border-background-100 border w-max bg-black rounded-lg p-2 '>
             {onHover}
           </p>
         )}
