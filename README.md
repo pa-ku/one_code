@@ -1,93 +1,74 @@
-# One Code Js Playground
-The powerful, lightweight code editor for modern developers. with a built-in console for real-time code execution and debugging. Built with React, Monaco Editor, and TypeScript.
+# One Code JS Playground 🎮
+Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espacio de juego para experimentar con código. Esta herramienta está diseñada para ayudar a los desarrolladores a probar y desarrollar código JavaScript/TypeScript de manera eficiente.
 
-![screencapture-1code-vercel-app-2024-12-17-15_00_07](https://github.com/user-attachments/assets/a6afbe39-22d3-450f-908d-4eb1f08267a2)
+#### 🔗 Demo en vivo: [https://1code.vercel.app/](https://1code.vercel.app/)
 
 
-## Features
+<kbd>
+<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="800" >
+</kbd>
 
-### Code Editor
-- **Monaco Editor Integration**: Full-featured code editor with syntax highlighting
-- **Auto-run Mode**: Automatically executes code as you type
-- **Manual Execution**: Run code on demand with the "Run" button
-- **TypeScript Support**: Built-in TypeScript support for better development experience
-
-### Interactive Console
-- **Real-time Output**: See your code's output instantly
-- **Error Handling**: Clear visualization of errors and stack traces
-- **Network Requests**: Support for fetch API with proper response formatting
-
-### UI Features
-- **Resizable Panels**: Drag to resize editor and console panels
-- **Dark Theme**: Eye-friendly dark theme for extended coding sessions
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- pnpm
-
-### Installation
-
-1. Clone the repository:
-```bash
+## 🌟 Características
+Entorno de desarrollo TypeScript/JavaScript
+Soporte para ES6+
+Integración con Tailwind CSS
+Almacenamiento local para guardar código
+Vista previa en tiempo real
+Interfaz moderna y limpia
+Diseño responsive
+🚀 Comenzando
+Requisitos Previos
+Node.js (v14 o superior)
+npm o yarn
+Instalación
+Clona el repositorio:
 git clone https://github.com/pa-ku/one_code.git
-```
+cd one_code
+Instala las dependencias:
+npm install
+# o
+yarn install
+Inicia el servidor de desarrollo:
+npm run dev
+# o
+yarn dev
+💻 Uso
+Abre la aplicación en tu navegador
+Escribe o pega tu código TypeScript/JavaScript
+Observa los resultados en tiempo real
+Guarda tu código localmente
+Experimenta con diferentes características de ES6+
+🛠️ Construido Con
+TypeScript
+JavaScript
+Tailwind CSS
+Vite
+ESLint
+📝 Estructura del Proyecto
+one_code/
+├── public/
+├── src/
+├── .eslintrc.js
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+🤝 Contribuir
+¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
 
-2. Install dependencies:
-```bash
-pnpm install
-```
+Haz un fork del proyecto
+Crea tu rama de características (git checkout -b feature/CaracteristicaIncreible)
+Haz commit de tus cambios (git commit -m 'Añadir alguna CaracteristicaIncreible')
+Haz push a la rama (git push origin feature/CaracteristicaIncreible)
+Abre un Pull Request
+📜 Licencia
+Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
 
-3. Start the development server:
-```bash
-pnpm run dev
-```
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── Console/
-│   │   ├── index.tsx
-│   │   ├── ConsoleHeader.tsx
-│   │   ├── ConsoleInput.tsx
-│   │   └── ConsoleItem.tsx
-│   ├── Editor/
-│   │   ├── index.tsx
-│   │   └── EditorHeader.tsx
-│   └── ResizeHandle.tsx
-├── hooks/
-│   ├── useClipboard.ts
-│   ├── useConsoleHistory.ts
-│   ├── useDebounce.ts
-│   └── usePanelResize.ts
-├── utils/
-│   ├── codeExecutor.ts
-│   ├── consoleFormatter.ts
-│   ├── customConsole.ts
-│   └── secureFetch.ts
-└── App.tsx
-```
-
-## Technical Details
-
-### Built With
-- React
-- TypeScript
-- Monaco Editor
-- Tailwind CSS
-- Lucide Icons
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+🔗 Enlaces
+Demo en vivo: https://one-code-dusky.vercel.app/
+Repositorio: https://github.com/pa-ku/one_code
+👏 Agradecimientos
+Gracias a todos los contribuyentes que ayudan a mejorar esta herramienta
+Inspirado en la necesidad de tener un entorno de desarrollo JavaScript moderno y accesible
