@@ -9,7 +9,7 @@ Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espac
 #### 🔗 Demo en vivo: [https://1code.vercel.app/](https://1code.vercel.app/)
 
 <kbd>
-<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="800" >
+<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="300" >
 </kbd>
 
 ## 🌟 Características
