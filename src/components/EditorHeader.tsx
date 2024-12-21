@@ -54,6 +54,13 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         >
           <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
+        <Checkbox
+          checked={lineNum}
+          onChange={(e) => setLineNum(e.target.checked)}
+          onHover='Line Numbers'
+        >
+          <ListOrdered size={20}></ListOrdered>
+        </Checkbox>
         <div className='h-full'></div>
         <Checkbox
           checked={formatOnSave}
@@ -61,13 +68,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           onHover='Format on save'
         >
           <Boxes size={20}></Boxes>
-        </Checkbox>
-        <Checkbox
-          checked={lineNum}
-          onChange={(e) => setLineNum(e.target.checked)}
-          onHover='Line Numbers'
-        >
-          <ListOrdered size={20}></ListOrdered>
         </Checkbox>
 
         <Checkbox

@@ -19,8 +19,8 @@ export function Console({ history }: ConsoleProps) {
           <div className='flex-col size-full flex items-center justify-center'>
             <img
               draggable={false}
-              width={300}
-              height={300}
+              width={250}
+              height={250}
               className='opacity-40 aspect-square invert'
               src={'/onecode.webp'}
               alt=''
