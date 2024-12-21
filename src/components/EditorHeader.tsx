@@ -86,28 +86,28 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         </Checkbox>
         <button
           onClick={copyToClipboard}
-          className='flex items-center text-md gap-2 px-3 py-0.5 hover:bg-accentbghover rounded text-accent'
+          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg rounded text-accent'
         >
           <Share2 size={20} />
           Share
           <p
             className={`${
               isCopied ? 'opacity-100' : ' opacity-0 '
-            } pointer-events-none  duration-300 absolute -bottom-10 border-background-100 border w-max bg-black rounded-lg p-2 `}
+            } pointer-events-none  duration-300 absolute -bottom-10  border-background-100 border w-max bg-black rounded-lg p-2 `}
           >
             Url copied
           </p>
         </button>
         <button
           onClick={onExecute}
-          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
+          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg rounded text-accent'
         >
           <Play size={20} />
           Run
         </button>
         <button
           onClick={closeMenu}
-          className='flex items-center justify-center text-primary-500 bg-accentbg  hover:bg-accentbghover rounded-lg  top-0 z-50 right-0'
+          className='flex items-center justify-center text-primary-500 p-1 hover:bg-accentbghover rounded-lg  top-0 z-50 right-0'
         >
           <PanelTopClose />
         </button>
