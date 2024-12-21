@@ -1,93 +1,30 @@
-# One Code Js Playground
-The powerful, lightweight code editor for modern developers. with a built-in console for real-time code execution and debugging. Built with React, Monaco Editor, and TypeScript.
 
-![screencapture-1code-vercel-app-2024-12-17-15_00_07](https://github.com/user-attachments/assets/a6afbe39-22d3-450f-908d-4eb1f08267a2)
+<div align="center">  
+  <img src= "https://github.com/user-attachments/assets/57240a44-7e0a-4df8-933b-c9be7313c8ee" width=150>
+<h1>One Code | JS Playground</h1>
+</div>
 
+Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espacio de juego para experimentar con código. Esta herramienta está diseñada para ayudar a los desarrolladores a probar y desarrollar código JavaScript/TypeScript de manera eficiente.
 
-## Features
+#### 🔗 Demo en vivo: [https://1code.vercel.app/](https://1code.vercel.app/)
 
-### Code Editor
-- **Monaco Editor Integration**: Full-featured code editor with syntax highlighting
-- **Auto-run Mode**: Automatically executes code as you type
-- **Manual Execution**: Run code on demand with the "Run" button
-- **TypeScript Support**: Built-in TypeScript support for better development experience
+<kbd>
+<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="300" >
+</kbd>
 
-### Interactive Console
-- **Real-time Output**: See your code's output instantly
-- **Error Handling**: Clear visualization of errors and stack traces
-- **Network Requests**: Support for fetch API with proper response formatting
+## 🌟 Características
+- Consola de Javascript
+- Fetching de data
+- Soporte para ES6+
+- Almacenamiento local y en Url para guardar código
+- Themes
+- Formateo de codigo
+- Sharing Code
 
-### UI Features
-- **Resizable Panels**: Drag to resize editor and console panels
-- **Dark Theme**: Eye-friendly dark theme for extended coding sessions
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- pnpm
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/pa-ku/one_code.git
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Start the development server:
-```bash
-pnpm run dev
-```
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── Console/
-│   │   ├── index.tsx
-│   │   ├── ConsoleHeader.tsx
-│   │   ├── ConsoleInput.tsx
-│   │   └── ConsoleItem.tsx
-│   ├── Editor/
-│   │   ├── index.tsx
-│   │   └── EditorHeader.tsx
-│   └── ResizeHandle.tsx
-├── hooks/
-│   ├── useClipboard.ts
-│   ├── useConsoleHistory.ts
-│   ├── useDebounce.ts
-│   └── usePanelResize.ts
-├── utils/
-│   ├── codeExecutor.ts
-│   ├── consoleFormatter.ts
-│   ├── customConsole.ts
-│   └── secureFetch.ts
-└── App.tsx
-```
-
-## Technical Details
-
-### Built With
+## 🛠️ Construido Con
 - React
 - TypeScript
-- Monaco Editor
+- Monaco
 - Tailwind CSS
-- Lucide Icons
+- Vite
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
