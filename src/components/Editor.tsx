@@ -11,7 +11,7 @@ interface EditorProps {
 }
 
 export function Editor({ code, onChange, executeWithButton }: EditorProps) {
-  const { openConfig, openMenu, lineNum, formatOnSave } = useConfig()
+  const { openConfig, openMenu, lineNum, formatOnSave, fontSize } = useConfig()
 
   return (
     <div className='h-full relative flex flex-col'>
@@ -38,7 +38,7 @@ export function Editor({ code, onChange, executeWithButton }: EditorProps) {
             onChange={onChange}
             options={{
               minimap: { enabled: false },
-              fontSize: 18,
+              fontSize: fontSize,
               lineNumbers: lineNum ? 'on' : 'off',
               roundedSelection: false,
               scrollBeyondLastLine: false,
