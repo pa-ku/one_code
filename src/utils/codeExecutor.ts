@@ -20,15 +20,19 @@ export async function executeCode(
 ): Promise<void> {
   const wrappedCode = `
     return async function() {
+      'use strict';
       const { console, fetch } = arguments[0];
-      ${code}
+      try {
+        ${code}
+      } catch (error) {
+        console.error('Error executing code:', error);
+      }
     }
   `
-
   try {
     const fn = new Function(wrappedCode)()
     await fn(context)
   } catch (error) {
-    context.console.error(error)
+    context.console.error('Error creating function:', error)
   }
 }

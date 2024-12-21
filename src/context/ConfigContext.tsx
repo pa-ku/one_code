@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useMemo } from 'react'
 import useLocalStorage from 'use-local-storage'
+
 export const ConfigContext = createContext<ConfigContextType | undefined>(
   undefined
 )
@@ -36,31 +37,29 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
   const [saveCode, setSaveCode] = useLocalStorage('saveCode', true)
   const [invertLayout, setInvertLayout] = useLocalStorage('layout', false)
   const [lineNum, setLineNum] = useLocalStorage('lineNum', true)
+  const [formatOnSave, setFormatOnSave] = useLocalStorage('formatOnSave', true)
 
-  function closeMenu() {
-    setOpenConfig(false)
-  }
-
-  function openMenu() {
-    setOpenConfig(true)
-  }
+  const contextValue = useMemo(
+    () => ({
+      autoRun,
+      setAutoRun,
+      openMenu: () => setOpenConfig(true),
+      closeMenu: () => setOpenConfig(false),
+      openConfig,
+      saveCode,
+      setSaveCode,
+      setInvertLayout,
+      invertLayout,
+      lineNum,
+      setLineNum,
+      setFormatOnSave,
+      formatOnSave,
+    }),
+    [autoRun, openConfig, saveCode, invertLayout, lineNum, formatOnSave]
+  )
 
   return (
-    <ConfigContext.Provider
-      value={{
-        autoRun,
-        setAutoRun,
-        openMenu,
-        closeMenu,
-        openConfig,
-        saveCode,
-        setSaveCode,
-        setInvertLayout,
-        invertLayout,
-        lineNum,
-        setLineNum,
-      }}
-    >
+    <ConfigContext.Provider value={contextValue}>
       {children}
     </ConfigContext.Provider>
   )

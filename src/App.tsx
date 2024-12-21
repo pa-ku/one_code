@@ -6,15 +6,17 @@ import { createCustomConsole } from './utils/customConsole'
 import { useDebounce } from './hooks/useDebounce'
 import { useConsoleHistory } from './hooks/useConsoleHistory'
 import { useConfig } from './context/ConfigContext'
-import useLocalStorage from 'use-local-storage'
 import { usePanelResize } from './hooks/usePanelResize'
 import { createExecutionContext, executeCode } from './utils/codeExecutor'
 
+import useManageCode from './hooks/useManageCode'
+
 export default function App() {
-  const [code, setCode] = useLocalStorage('code', '')
+  const { replaceUrl, saveCodeInLocal, setCode, code } = useManageCode()
+
   const { history, addToHistory, clearHistory } = useConsoleHistory()
   const { leftPanelWidth, handleMouseDown } = usePanelResize()
-  const { autoRun, invertLayout } = useConfig()
+  const { autoRun, invertLayout, saveCode } = useConfig()
   const debouncedCode = useDebounce(code, 300)
 
   const handleExecution = useCallback(
@@ -22,13 +24,11 @@ export default function App() {
       clearHistory()
       const customConsole = createCustomConsole(addToHistory)
       const context = createExecutionContext(customConsole)
-
       await executeCode(input, context)
     },
     [addToHistory, clearHistory]
   )
-
-  const handleEditorExecution = useCallback(() => {
+  const executeWithButton = useCallback(() => {
     handleExecution(code)
   }, [code, handleExecution])
 
@@ -36,13 +36,17 @@ export default function App() {
     if (autoRun) {
       handleExecution(debouncedCode)
     }
-  }, [debouncedCode, autoRun, handleExecution])
-
-  useEffect(() => {
-    if (autoRun) {
-      handleExecution(debouncedCode)
+    if (saveCode) {
+      replaceUrl(debouncedCode)
+      return
     }
-  }, [debouncedCode, autoRun, executeCode])
+    replaceUrl('/')
+  }, [debouncedCode, saveCode])
+
+  function handleEditorChange(value: string | undefined) {
+    saveCodeInLocal(value)
+    setCode(value || '')
+  }
 
   return (
     <div className='h-screen w-screen relative   bg-gray-900 text-white overflow-hidden'>
@@ -65,9 +69,9 @@ export default function App() {
           style={{ width: `${100 - leftPanelWidth}%` }}
         >
           <Editor
-            value={code}
-            onChange={(value) => setCode(value || '')}
-            onExecute={handleEditorExecution}
+            code={code}
+            onChange={handleEditorChange}
+            executeWithButton={executeWithButton}
           />
         </div>
       </div>

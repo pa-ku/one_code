@@ -5,38 +5,25 @@ import { PanelTopOpen } from 'lucide-react'
 import { handleEditorMount } from '../utils/handleEditorMount'
 
 interface EditorProps {
-  value: string
+  code: string
   onChange: (value: string | undefined) => void
-  onExecute: () => void
+  executeWithButton: () => void
 }
 
-export function Editor({ value, onChange, onExecute }: EditorProps) {
-  const { openConfig, openMenu, lineNum } = useConfig()
-
-  const editorOptions = {
-    minimap: { enabled: false },
-    fontSize: 18,
-    lineNumbers: lineNum ? 'on' : 'off',
-    roundedSelection: false,
-    scrollBeyondLastLine: false,
-    automaticLayout: true,
-    wordWrap: 'on',
-    suggestOnTriggerCharacters: true,
-    snippetSuggestions: 'on',
-    tabSize: 2,
-  }
+export function Editor({ code, onChange, executeWithButton }: EditorProps) {
+  const { openConfig, openMenu, lineNum, formatOnSave } = useConfig()
 
   return (
     <div className='h-full relative flex flex-col'>
       <button
         onClick={openMenu}
-        className={`bg-primay-500 p-1 mr-2 rounded-lg text-primary-500 hover:bg-accentbg flex items-center justify-center absolute top-2 z-50 right-2 duration-300 ${
+        className={`bg-primay-500  mr-2 rounded-lg text-primary-500 hover:bg-accentbg flex items-center justify-center absolute top-2 z-50 right-2 duration-300 ${
           openConfig ? 'scale-0' : ''
         }`}
       >
         <PanelTopOpen />
       </button>
-      <EditorHeader onExecute={onExecute} />
+      <EditorHeader onExecute={executeWithButton} />
       <div
         className={`${
           openConfig ? 'pt-12 ' : 'pt-0 '
@@ -47,9 +34,24 @@ export function Editor({ value, onChange, onExecute }: EditorProps) {
             height='100%'
             defaultLanguage='javascript'
             theme='mosqueta-dark'
-            value={value}
+            value={code}
             onChange={onChange}
-            options={editorOptions}
+            options={{
+              minimap: { enabled: false },
+              fontSize: 18,
+              lineNumbers: lineNum ? 'on' : 'off',
+              roundedSelection: false,
+              scrollBeyondLastLine: false,
+              automaticLayout: true,
+              wordWrap: 'on',
+              suggestOnTriggerCharacters: true,
+              snippetSuggestions: 'top',
+              tabSize: 2,
+              autoIndent: 'full',
+              formatOnPaste: formatOnSave,
+              formatOnType: formatOnSave,
+              padding: { top: 10, bottom: 10 },
+            }}
             onMount={handleEditorMount}
           />
         </div>

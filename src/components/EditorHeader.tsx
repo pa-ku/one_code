@@ -5,11 +5,13 @@ import {
   Cloud,
   ArrowLeftRight,
   ListOrdered,
-  LayoutGrid,
+  Boxes,
+  Share2,
 } from 'lucide-react'
 import icon from '/onecode.webp'
 import { useConfig } from '../context/ConfigContext'
 import Checkbox from './Checkbox'
+import { useClipboard } from '../hooks/useClipboard'
 
 interface EditorHeaderProps {
   onExecute: () => void
@@ -27,7 +29,12 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     setLineNum,
     lineNum,
     invertLayout,
+    formatOnSave,
+    setFormatOnSave,
   } = useConfig()
+
+  /*   const { shareCode } = useCodeSharing() */
+  const { isCopied, copyToClipboard } = useClipboard()
 
   return (
     <div
@@ -49,6 +56,13 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         </Checkbox>
         <div className='h-full'></div>
         <Checkbox
+          checked={formatOnSave}
+          onChange={(e) => setFormatOnSave(e.target.checked)}
+          onHover='Format on save'
+        >
+          <Boxes size={20}></Boxes>
+        </Checkbox>
+        <Checkbox
           checked={lineNum}
           onChange={(e) => setLineNum(e.target.checked)}
           onHover='Line Numbers'
@@ -59,7 +73,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <Checkbox
           checked={saveCode}
           onChange={(e) => setSaveCode(e.target.checked)}
-          onHover='Save Localy'
+          onHover='Save in url'
         >
           <Cloud size={20}></Cloud>
         </Checkbox>
@@ -71,15 +85,29 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           <RefreshCcw size={20} />
         </Checkbox>
         <button
+          onClick={copyToClipboard}
+          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
+        >
+          <Share2 size={20} />
+          Share
+          <p
+            className={`${
+              isCopied ? 'opacity-100' : ' opacity-0 '
+            } pointer-events-none  duration-300 absolute -bottom-10 border-background-100 border w-max bg-black rounded-lg p-2 `}
+          >
+            Url copied
+          </p>
+        </button>
+        <button
           onClick={onExecute}
-          className='flex items-center text-lg gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
+          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
         >
           <Play size={20} />
           Run
         </button>
         <button
           onClick={closeMenu}
-          className='flex items-center justify-center text-primary-500 bg-accentbg p-1 hover:bg-accentbghover rounded-lg   top-0 z-50 right-0'
+          className='flex items-center justify-center text-primary-500 bg-accentbg  hover:bg-accentbghover rounded-lg  top-0 z-50 right-0'
         >
           <PanelTopClose />
         </button>
