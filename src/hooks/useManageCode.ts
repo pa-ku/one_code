@@ -11,7 +11,7 @@ export default function useManageCode() {
     (code) => {
       if (saveCode) {
         const hashedCode = encode(code)
-        window.history.replaceState(null, '', `/${hashedCode}`)
+        window.history.replaceState({}, '', `/${hashedCode}`)
       }
     },
     [saveCode]
@@ -19,14 +19,14 @@ export default function useManageCode() {
 
   const saveUrlOnLoad = useCallback(() => {
     const urlPath = window.location.pathname.slice(1)
-    if (urlPath === 'undefined') {
-      window.history.replaceState(null, '', `/`)
+    if (urlPath === 'undefined' || urlPath === '' || urlPath === 'null') {
+      window.history.replaceState({}, '', `/`)
       localStorage.setItem('urlPath', '')
       return
     }
     if (!urlPath) {
       const localPath = localStorage.getItem('urlPath')
-      window.history.replaceState(null, '', `/${localPath}`)
+      window.history.replaceState({}, '', `/${localPath}`)
       const decodedCode = decode(localPath)
       setCode(decodedCode)
     } else {
