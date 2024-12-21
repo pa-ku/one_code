@@ -86,7 +86,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         </Checkbox>
         <button
           onClick={copyToClipboard}
-          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg hover:bg-accentbghover rounded text-accent'
+          className='flex items-center text-md gap-2 px-3 py-0.5 hover:bg-accentbghover rounded text-accent'
         >
           <Share2 size={20} />
           Share
