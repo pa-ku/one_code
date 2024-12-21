@@ -23,7 +23,8 @@
 /* SELECTION */
 ::selection {
   color: white;
-  background: #5e4266;
+  
+  background: #5e4266b7;
 }
 
 ::-webkit-scrollbar {
