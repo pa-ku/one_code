@@ -16,15 +16,25 @@ export function Console({ history }: ConsoleProps) {
             </div>
           ))
         ) : (
-          <div className=' size-full flex items-center justify-center'>
+          <div className='flex-col size-full flex items-center justify-center'>
             <img
               draggable={false}
               width={300}
               height={300}
-              className='opacity-20 aspect-square invert'
+              className='opacity-40 aspect-square invert'
               src={'/onecode.webp'}
               alt=''
             />
+            <p className='text-zinc-400 mt-7'>
+              Format code
+              <b className='bg-black/30 ml-3 rounded-xl p-2'>SHIFT + ALT + F</b>
+            </p>
+            <p className='text-zinc-400 mt-7'>
+              Remove brackets
+              <b className='bg-black/30 ml-3 rounded-xl p-2'>
+                CTRL + ALT + Backspace
+              </b>
+            </p>
           </div>
         )}
       </div>
