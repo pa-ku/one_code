@@ -26,9 +26,12 @@ export default function useManageCode() {
     }
     if (!urlPath) {
       const localPath = localStorage.getItem('urlPath')
-      window.history.replaceState({}, '', `/${localPath}`)
-      const decodedCode = decode(localPath)
-      setCode(decodedCode)
+      if (!localPath) return console.log('No hay local path')
+      else {
+        window.history.replaceState({}, '', `/${localPath}`)
+        const decodedCode = decode(localPath)
+        setCode(decodedCode)
+      }
     } else {
       if (saveCode) {
         localStorage.setItem('urlPath', urlPath)
