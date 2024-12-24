@@ -12,6 +12,7 @@ import icon from '/onecode.webp'
 import { useConfig } from '../context/ConfigContext'
 import Checkbox from './Checkbox'
 import { useClipboard } from '../hooks/useClipboard'
+import FontButton from './ui/FontButton'
 
 interface EditorHeaderProps {
   onExecute: () => void
@@ -31,36 +32,11 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     invertLayout,
     formatOnSave,
     setFormatOnSave,
-    fontSize,
-    setFontSize,
+
   } = useConfig()
 
   /*   const { shareCode } = useCodeSharing() */
   const { isCopied, copyToClipboard } = useClipboard()
-
-  function handleFontSize(value) {
-    if (!/^\d+$/.test(value)) {
-      return
-    } else if (value <= 10) {
-      setFontSize(10)
-    } else if (value > 40) {
-      setFontSize(40)
-      return
-    } else {
-      setFontSize(Number(value)) // Convierte el string a número antes de usarlo
-    }
-  }
-
-  function handleFontButton(name) {
-    if (name == '-' && fontSize <= 10) {
-      setFontSize(10)
-    } else if (name == '+' && fontSize >= 40) {
-      setFontSize(40)
-    } else {
-      if (name === '+') setFontSize((prev) => prev + 1)
-      else setFontSize((prev) => prev - 1)
-    }
-  }
 
   return (
     <div
@@ -74,28 +50,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
       <div className=' flex items-center gap-4'>
         <p className='text-background-100 text-xs '>Font Size</p>
 
-        <div className='flex border h-8 border-background-200 rounded-lg'>
-          <button
-            onClick={(e) => handleFontButton(e.target.name)}
-            className='bg-accentbg text-accent px-1 rounded-l-lg'
-            name='-'
-          >
-            {'<'}
-          </button>
-          <input
-            value={fontSize}
-            type='text'
-            onChange={(e) => handleFontSize(e.target.value)}
-            className=' w-8 text-accent h-full appearance-none bg-accentbg flex text-center items-center justify-center'
-          />
-          <button
-            onClick={(e) => handleFontButton(e.target.name)}
-            name='+'
-            className='bg-accentbg  text-accent rounded-r-lg px-1'
-          >
-            {'>'}
-          </button>
-        </div>
+        <FontButton />
         <p className='text-background-100 text-xs '>Layout</p>
 
         <Checkbox

@@ -19,8 +19,8 @@ type ConfigContextType = {
   saveCode: boolean
   formatOnSave: boolean
   setFormatOnSave: (value: boolean) => void
-  fontSize: string
-  setFontSize: (value: boolean) => void
+  fontSize: number
+  setFontSize: (value: number) => number
 }
 
 export function useConfig(): ConfigContextType {
@@ -42,7 +42,7 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
   const [invertLayout, setInvertLayout] = useLocalStorage('layout', false)
   const [lineNum, setLineNum] = useLocalStorage('lineNum', true)
   const [formatOnSave, setFormatOnSave] = useLocalStorage('formatOnSave', true)
-  const [fontSize, setFontSize] = useLocalStorage('formatOnSave', '18')
+  const [fontSize, setFontSize] = useLocalStorage('formatOnSave', 18)
 
   const contextValue = useMemo(
     () => ({
