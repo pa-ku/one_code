@@ -32,7 +32,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     invertLayout,
     formatOnSave,
     setFormatOnSave,
-
   } = useConfig()
 
   /*   const { shareCode } = useCodeSharing() */
@@ -48,8 +47,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <img src={icon} alt='' className='size-full object-contain' />
       </p>
       <div className=' flex items-center gap-4'>
-        <p className='text-background-100 text-xs '>Font Size</p>
-
         <FontButton />
         <p className='text-background-100 text-xs '>Layout</p>
 

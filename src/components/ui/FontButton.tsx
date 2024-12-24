@@ -22,8 +22,12 @@ export default function FontButton() {
       >
         {'<'}
       </button>
-      <p className='w-8 text-accent h-full appearance-none bg-accentbg flex text-center items-center justify-center'>
+      <p className='w-8 peer text-accent h-full appearance-none bg-accentbg flex text-center items-center justify-center'>
         {fontSize}
+      </p>
+
+      <p className='pointer-events-none peer-hover:opacity-100 opacity-0 duration-300 absolute -bottom-12 border-background-100 border w-max bg-black rounded-lg p-2 '>
+        Font size
       </p>
 
       <button
