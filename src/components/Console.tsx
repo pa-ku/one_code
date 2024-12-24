@@ -21,7 +21,7 @@ export function Console({ history }: ConsoleProps) {
               draggable={false}
               width={250}
               height={250}
-              className='opacity-40 aspect-square invert'
+              className=' aspect-square grayscale brightness-0'
               src={'/onecode.webp'}
               alt=''
             />
