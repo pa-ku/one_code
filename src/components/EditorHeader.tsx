@@ -42,21 +42,20 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
       <div className=' flex items-center  flex-col gap-4'>
         <button
           onClick={onExecute}
-          className='flex items-center text-md gap-2 p-1 bg-accentbg rounded text-accent'
+          className='flex items-center text-md gap-2 p-1  rounded text-accent'
         >
           <Play size={20} />
         </button>
 
         <button
           onClick={copyToClipboard}
-          className='flex items-center text-md gap-2 p-1 bg-accentbg rounded text-accent'
+          className='flex relative items-center text-md gap-2 p-1  rounded text-accent'
         >
           <Share2 size={20} />
-
           <p
             className={`${
               isCopied ? 'opacity-100' : ' opacity-0 '
-            } pointer-events-none  duration-300 absolute -bottom-10  border-background-100 border w-max bg-black rounded-lg p-2 `}
+            } pointer-events-none z-10  duration-300 absolute left-0 border-background-100 border w-max bg-black rounded-lg p-2 `}
           >
             Url copied
           </p>
