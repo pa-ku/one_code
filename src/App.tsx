@@ -10,6 +10,7 @@ import { usePanelResize } from './hooks/usePanelResize'
 import { createExecutionContext, executeCode } from './utils/codeExecutor'
 
 import useManageCode from './hooks/useManageCode'
+import { EditorHeader } from './components/EditorHeader'
 
 export default function App() {
   const { replaceUrl, saveCodeInLocal, setCode, code } = useManageCode()
@@ -52,11 +53,13 @@ export default function App() {
     <div className='h-screen w-screen relative   bg-gray-900 text-white overflow-hidden'>
       <div
         id='panels-container'
-        className={`flex w-full h-full     select-none ${
+        className={`flex w-full h-full  pl-14   select-none ${
           invertLayout ? 'flex-row' : 'flex-row-reverse'
         }`}
         style={{ userSelect: 'none' }}
       >
+        <EditorHeader onExecute={executeWithButton} />
+
         <div
           className='bg-gray-800 overflow-hidden'
           style={{ width: `${leftPanelWidth}%` }}

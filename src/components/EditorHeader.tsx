@@ -1,5 +1,4 @@
 import {
-  PanelTopClose,
   Play,
   RefreshCcw,
   Cloud,
@@ -12,7 +11,6 @@ import icon from '/onecode.webp'
 import { useConfig } from '../context/ConfigContext'
 import Checkbox from './Checkbox'
 import { useClipboard } from '../hooks/useClipboard'
-import FontButton from './ui/FontButton'
 
 interface EditorHeaderProps {
   onExecute: () => void
@@ -24,8 +22,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     saveCode,
     setSaveCode,
     setAutoRun,
-    openConfig,
-    closeMenu,
     setInvertLayout,
     setLineNum,
     lineNum,
@@ -34,20 +30,38 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     setFormatOnSave,
   } = useConfig()
 
-  /*   const { shareCode } = useCodeSharing() */
   const { isCopied, copyToClipboard } = useClipboard()
 
   return (
     <div
-      className={`absolute top-0 px-4 -translate-y-full duration-500 z-50 h-12 border-b bg-background-500 w-full border-gray-700 flex items-center justify-between ${
-        openConfig && 'translate-y-0 '
-      }`}
+      className={`fixed  left-0 top-0 w-14  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
     >
-      <p className=' h-full size-7 flex items-center justify-center font-bold'>
+      <p className='mb-10 mt-3 size-7 flex items-center justify-center font-bold'>
         <img src={icon} alt='' className='size-full object-contain' />
       </p>
-      <div className=' flex items-center gap-4'>
-        <FontButton />
+      <div className=' flex items-center  flex-col gap-4'>
+        <button
+          onClick={onExecute}
+          className='flex items-center text-md gap-2 p-1 bg-accentbg rounded text-accent'
+        >
+          <Play size={20} />
+        </button>
+
+        <button
+          onClick={copyToClipboard}
+          className='flex items-center text-md gap-2 p-1 bg-accentbg rounded text-accent'
+        >
+          <Share2 size={20} />
+
+          <p
+            className={`${
+              isCopied ? 'opacity-100' : ' opacity-0 '
+            } pointer-events-none  duration-300 absolute -bottom-10  border-background-100 border w-max bg-black rounded-lg p-2 `}
+          >
+            Url copied
+          </p>
+        </button>
+
         <p className='text-background-100 text-xs '>Layout</p>
 
         <Checkbox
@@ -65,6 +79,8 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           <ListOrdered size={20}></ListOrdered>
         </Checkbox>
         <div className='h-full'></div>
+        <p className='text-background-100 text-xs '>Config</p>
+
         <Checkbox
           checked={formatOnSave}
           onChange={(e) => setFormatOnSave(e.target.checked)}
@@ -87,33 +103,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         >
           <RefreshCcw size={20} />
         </Checkbox>
-        <button
-          onClick={copyToClipboard}
-          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg rounded text-accent'
-        >
-          <Share2 size={20} />
-          Share
-          <p
-            className={`${
-              isCopied ? 'opacity-100' : ' opacity-0 '
-            } pointer-events-none  duration-300 absolute -bottom-10  border-background-100 border w-max bg-black rounded-lg p-2 `}
-          >
-            Url copied
-          </p>
-        </button>
-        <button
-          onClick={onExecute}
-          className='flex items-center text-md gap-2 px-3 py-0.5 bg-accentbg rounded text-accent'
-        >
-          <Play size={20} />
-          Run
-        </button>
-        <button
-          onClick={closeMenu}
-          className='flex items-center justify-center text-primary-500 p-1 hover:bg-accentbg rounded-lg  top-0 z-50 right-0'
-        >
-          <PanelTopClose />
-        </button>
       </div>
     </div>
   )
