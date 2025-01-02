@@ -36,9 +36,13 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     <div
       className={`fixed  left-0 top-0 w-14  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
     >
-      <p className='mb-10 mt-3 size-7 flex items-center justify-center font-bold'>
+      <a
+        target='blank'
+        href='https://1codeweb.netlify.app/'
+        className='mb-10 mt-3 size-7 flex items-center justify-center font-bold'
+      >
         <img src={icon} alt='' className='size-full object-contain' />
-      </p>
+      </a>
       <div className=' flex items-center  flex-col gap-4'>
         <button
           onClick={onExecute}
