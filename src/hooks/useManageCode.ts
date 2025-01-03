@@ -17,6 +17,13 @@ export default function useManageCode() {
     [saveCode]
   )
 
+  function clearCode() {
+    setCode('')
+    localStorage.setItem('urlPath', '')
+    replaceUrl('')
+    window.location.reload()
+  }
+
   const saveUrlOnLoad = useCallback(() => {
     const urlPath = window.location.pathname.slice(1)
     if (urlPath === 'undefined' || urlPath === '' || urlPath === 'null') {
@@ -62,5 +69,5 @@ export default function useManageCode() {
     saveUrlOnLoad()
   }, [])
 
-  return { replaceUrl, saveCodeInLocal, setCode, code }
+  return { replaceUrl, saveCodeInLocal, setCode, code, clearCode }
 }

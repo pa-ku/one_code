@@ -6,11 +6,13 @@ import {
   ListOrdered,
   Boxes,
   Share2,
+  Trash2,
 } from 'lucide-react'
 import icon from '/onecode.webp'
 import { useConfig } from '../context/ConfigContext'
 import Checkbox from './Checkbox'
 import { useClipboard } from '../hooks/useClipboard'
+import useManageCode from '../hooks/useManageCode'
 
 interface EditorHeaderProps {
   onExecute: () => void
@@ -31,6 +33,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
   } = useConfig()
 
   const { isCopied, copyToClipboard } = useClipboard()
+  const { clearCode } = useManageCode()
 
   return (
     <div
@@ -47,6 +50,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <button
           onClick={onExecute}
           className='flex items-center text-md gap-2 p-1  rounded text-accent'
+          title='Execute code'
         >
           <Play size={20} />
         </button>
@@ -54,6 +58,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         <button
           onClick={copyToClipboard}
           className='flex relative items-center text-md gap-2 p-1  rounded text-accent'
+          title='Copy url'
         >
           <Share2 size={20} />
           <p
@@ -64,25 +69,31 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
             Url copied
           </p>
         </button>
-
-        <p className='text-background-100 text-xs '>Layout</p>
-
-        <Checkbox
-          checked={invertLayout}
-          onChange={(e) => setInvertLayout(e.target.checked)}
-          onHover='Invert Layot'
+        <button
+          onClick={clearCode}
+          className='flex items-center text-md gap-2 p-1  rounded text-accent'
+          title='Clear editor'
         >
-          <ArrowLeftRight size={20}></ArrowLeftRight>
-        </Checkbox>
-        <Checkbox
-          checked={lineNum}
-          onChange={(e) => setLineNum(e.target.checked)}
-          onHover='Line Numbers'
-        >
-          <ListOrdered size={20}></ListOrdered>
-        </Checkbox>
+          <Trash2 size={20} />
+        </button>
+
         <div className='h-full'></div>
         <p className='text-background-100 text-xs '>Config</p>
+
+        <Checkbox
+          checked={autoRun}
+          onChange={(e) => setAutoRun(e.target.checked)}
+          onHover='Auto run'
+        >
+          <RefreshCcw size={20} />
+        </Checkbox>
+        <Checkbox
+          checked={saveCode}
+          onChange={(e) => setSaveCode(e.target.checked)}
+          onHover='Save in url'
+        >
+          <Cloud size={20}></Cloud>
+        </Checkbox>
 
         <Checkbox
           checked={formatOnSave}
@@ -92,19 +103,21 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           <Boxes size={20}></Boxes>
         </Checkbox>
 
+        <p className='text-background-100 text-xs '>Layout</p>
+
         <Checkbox
-          checked={saveCode}
-          onChange={(e) => setSaveCode(e.target.checked)}
-          onHover='Save in url'
+          checked={lineNum}
+          onChange={(e) => setLineNum(e.target.checked)}
+          onHover='Line Numbers'
         >
-          <Cloud size={20}></Cloud>
+          <ListOrdered size={20}></ListOrdered>
         </Checkbox>
         <Checkbox
-          checked={autoRun}
-          onChange={(e) => setAutoRun(e.target.checked)}
-          onHover='Auto run'
+          checked={invertLayout}
+          onChange={(e) => setInvertLayout(e.target.checked)}
+          onHover='Invert Layot'
         >
-          <RefreshCcw size={20} />
+          <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
       </div>
     </div>
