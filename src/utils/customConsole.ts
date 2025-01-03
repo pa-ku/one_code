@@ -13,7 +13,7 @@ class CustomConsole {
         typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
       )
       .join(' ')
-    this.callback(`> ${message}`)
+    this.callback(`${message}`)
   }
 
   error(...args: any[]) {

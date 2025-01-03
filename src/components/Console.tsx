@@ -8,11 +8,8 @@ export function Console({ history }: ConsoleProps) {
       <div className='flex-1 p-4 font-mono overflow-y-auto '>
         {history.length > 0 ? (
           history.map((line, i) => (
-            <div
-              key={i}
-              className='first-line:whitespace-pre-wrap w mb-1 text-lg  text-sky-300 '
-            >
-              {line}
+            <div key={i} className='z-50 select-text mb-1 text-lg  text-sky-300 '>
+              <p>{line}</p>
             </div>
           ))
         ) : (

@@ -17,6 +17,9 @@ importers:
       lucide-react:
         specifier: ^0.344.0
         version: 0.344.0(react@18.3.1)
+      monaco-typescript:
+        specifier: ^4.10.0
+        version: 4.10.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1017,6 +1020,9 @@ packages:
 
   monaco-editor@0.52.2:
     resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
+
+  monaco-typescript@4.10.0:
+    resolution: {integrity: sha512-vzd7IGCshZO05YW/Kv2V/aKU/Pn8N3RjioHPmSJzG+4E9odnTrCOP8c/iOgkl2IyRS72WReDJ7xDYtMtg8WrOQ==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -2282,6 +2288,8 @@ snapshots:
   minipass@7.1.2: {}
 
   monaco-editor@0.52.2: {}
+
+  monaco-typescript@4.10.0: {}
 
   ms@2.1.3: {}
 
