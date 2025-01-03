@@ -1,45 +1,30 @@
+const jsSnippets = [
+    { key: "clg", content: "console.log(${1});", description: "Insert a console.log() for debugging." },
 
-export const javascriptSnippets = (monaco) => [
-    {
-        label: "clg",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "console.log(${1});",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "Inserta un console.log() para debuggear."
-    },
-    {
-        label: "setTimeout",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "setTimeout(()=>{  },2000)",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "Inserta un console.log() para debuggear."
-    },
-    {
-        label: "alert",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "alert(${1});",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "Inserta un alert() para debuggear."
-    },
-    {
-        label: "function",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "function ${1:nombreFuncion}(${2:}) {\n\t${3:}\n}",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "Crea una función."
-    },
-    {
-        label: "mathrandom",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "const luckyNumber = Math.floor(Math.random())",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "crea una variable con un numero"
-    },
-    {
-        label: "for",
-        kind: monaco.languages.CompletionItemKind.Snippet,
-        insertText: "for (let index = 0; index < array.length; index++) {const element = array[index];}",
-        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-        documentation: "crea una variable con un numero"
-    }
+    { key: "console", content: "console.log(${1});", description: "Insert a console.log() for debugging." },
+
+    { key: "setTimeout", content: "setTimeout(() => {\n\t${1}\n}, 2000);", description: "Insert a setTimeout snippet." },
+
+    { key: "alert", content: "alert(${1});", description: "Alert message." },
+
+    { key: "function", content: "function ${1:functionName}(${2:}) {\n\t${3}\n}", description: "Function declaration." },
+
+    { key: "mathrandom", content: "const luckyNumber = Math.floor(Math.random() * ${1:max});", description: "Generate a random number." },
+
+    { key: "for", content: "for (let index = 0; index < ${1:array}.length; index++) {\n\tconst element = ${1:array}[index];\n\t${2}\n}", description: "For loop." },
+
+    { key: "fetchGET", content: "async function fetchGET(url) {\n\tconst response = await fetch(url);\n\tconst data = await response.json();\n\treturn data;\n}", description: "Boilerplate for a fetch GET request." },
+
+    { key: "fetchPost", content: "async function fetchPost(url, data) {\n\tconst response = await fetch(url, {\n\t\tmethod: 'POST',\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json'\n\t\t},\n\t\tbody: JSON.stringify(data)\n\t});\n\tconst data = await response.json();\n\treturn data;\n}", description: "Boilerplate for a fetch POST request." },
+
+    { key: "groupBy", content: "const groupBy = (array, key) => {\n\treturn array.reduce((acc, item) => ({\n\t\t...acc,\n\t\t[item[key]]: [...(acc[item[key]] || []), item]\n\t}), {});\n};", description: "Group an array of objects by a key." },
 ];
+
+export const javascriptSnippets = (monaco) =>
+    jsSnippets.map(({ key, content, description }) => ({
+        label: key,
+        kind: monaco.languages.CompletionItemKind.Snippet,
+        insertText: content,
+        insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+        documentation: description
+    }));
