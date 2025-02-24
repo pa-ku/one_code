@@ -1,8 +1,9 @@
 
 <div align="center">  
-  <img src= "https://github.com/user-attachments/assets/57240a44-7e0a-4df8-933b-c9be7313c8ee" width=100>
+  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=100>
 <h1>One Code | JS Playground</h1>
 </div>
+
 
 Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espacio de juego para experimentar con código. Esta herramienta está diseñada para ayudar a los desarrolladores a probar y desarrollar código JavaScript/TypeScript de manera eficiente.
 
