@@ -1,6 +1,6 @@
 
 <div align="center">  
-  <img src= "https://github.com/user-attachments/assets/57240a44-7e0a-4df8-933b-c9be7313c8ee" width=150>
+  <img src= "https://github.com/user-attachments/assets/57240a44-7e0a-4df8-933b-c9be7313c8ee" width=100>
 <h1>One Code | JS Playground</h1>
 </div>
 
