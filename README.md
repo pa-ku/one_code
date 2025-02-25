@@ -1,33 +1,34 @@
 
 <div align="center">  
-  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=100>
-<h1>One Code | JS Playground</h1>
+
+  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" height=80>
+<h1> One Code Playground</h1>
 </div>
 
+<div align="center">
 
-Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espacio de juego para experimentar con código. Esta herramienta está diseñada para ayudar a los desarrolladores a probar y desarrollar código JavaScript/TypeScript de manera eficiente.
+<p >A modern and dynamic JavaScript development environment.</p>
+ <a href="https://onecode.paku.com.ar">onecode.paku.com.ar</a>
+</div>
 
-#### 🔗 Demo en vivo: [onecode.paku.com.ar](https://onecode.paku.com.ar)
+### 🌟 Features
+- JavaScript Console
+- Data Fetching
+- Supports ES6+ 
+- Save your code in Local Storage 
+- Code formatting with Prettier 
+- Share code via URL
+- Typescript
 
-<kbd>
-<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="300" >
-</kbd>
+### 💻 Builded with
+``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64`` ``Prettier``
+<br></br>
+> [!NOTE]  
+> There's a desktop version built with Tauri. You can try it here: https://1codeweb.netlify.app/
 
-## 🌟 Características
-- Consola de Javascript
-- Fetching de data
-- Soporte para ES6+
-- Almacenamiento local y en Url para guardar código
-- Themes
-- Formateo de codigo
-- Sharing Code
+  ## Instalation
 
-## 🛠️ Construido Con 
-``React`` ``TypeScript`` ``Monaco`` ``Tailwind CSS`` ``Vite``
-
-  ## Instalación
-
-#### clonar repo
+#### Clone the repo
 ````
 git clone https://github.com/pa-ku/one_code.git
 ````
