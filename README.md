@@ -21,7 +21,7 @@
 - Typescript
 
 ### 💻 Builded with
-``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64``
+``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64`` ``Prettier``
 <br></br>
 > [!NOTE]  
 > There's a desktop version built with Tauri. You can try it here: https://1codeweb.netlify.app/
