@@ -1,29 +1,30 @@
 
 <div align="center">  
 
+  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" height=80>
 <h1> One Code Playground</h1>
-  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=70>
 </div>
 
-<p align="center">A modern and dynamic JavaScript development environment.</p>
- 
+<div align="center">
 
-#### 🔗 Live demo: [onecode.paku.com.ar](https://onecode.paku.com.ar)
+<p >A modern and dynamic JavaScript development environment.</p>
+ <a href="https://onecode.paku.com.ar">onecode.paku.com.ar</a>
+</div>
 
-<kbd>
-<img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="300" >
-</kbd>
-
-## 🌟 Features
-- Javascript Console
+### 🌟 Features
+- JavaScript Console
 - Data Fetching
-- Support ES6+
-- Save your code in the Local storage 
-- Code format with prettier
-- Sharing Code by the url
+- Supports ES6+ 
+- Save your code in Local Storage 
+- Code formatting with Prettier 
+- Share code via URL
+- Typescript
 
-## 🛠️ Builded with
+### 💻 Builded with
 ``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64``
+<br></br>
+> [!NOTE]  
+> There's a desktop version built with Tauri. You can download it here: https://1codeweb.netlify.app/
 
   ## Instalation
 
