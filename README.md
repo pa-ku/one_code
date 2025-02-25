@@ -5,7 +5,7 @@
   <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=70>
 </div>
 
-<p font=26 align="center">A modern and dynamic JavaScript development environment.</p>
+<p align="center">A modern and dynamic JavaScript development environment.</p>
  
 
 #### 🔗 Live demo: [onecode.paku.com.ar](https://onecode.paku.com.ar)
