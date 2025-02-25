@@ -27,14 +27,9 @@ export function Console({ history }: ConsoleProps) {
             />
             <p className='text-zinc-400 mt-7'>
               Format code
-              <b className='bg-black/30 ml-3 rounded-xl p-2'>SHIFT + ALT + F</b>
+              <b className='bg-black/30 ml-3 rounded-xl p-2'>CTRL + Q</b>
             </p>
-            <p className='text-zinc-400 mt-7'>
-              Remove brackets
-              <b className='bg-black/30 ml-3 rounded-xl p-2'>
-                CTRL + ALT + Backspace
-              </b>
-            </p>
+            
           </div>
         )}
       </div>

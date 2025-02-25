@@ -1,6 +1,6 @@
 import MonacoEditor from '@monaco-editor/react'
 import { useConfig } from '../context/ConfigContext'
-import { handleEditorMount } from '../utils/handleEditorMount'
+import { handleEditorMount } from '../utils/handleEditorMount.ts'
 
 interface EditorProps {
   code: string
@@ -8,7 +8,7 @@ interface EditorProps {
 }
 
 export function Editor({ code, onChange }: EditorProps) {
-  const { lineNum, formatOnSave, fontSize } = useConfig()
+  const { lineNum, formatOnSave } = useConfig()
 
   return (
     <div className='h-full  relative flex flex-col'>

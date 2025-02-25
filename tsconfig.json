@@ -5,6 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["monaco-editor"]
+    "types": ["monaco-editor"],
+    "typeRoots": ["node_modules/@types"]
   }
 }
