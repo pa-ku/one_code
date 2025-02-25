@@ -24,7 +24,7 @@
 ``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64``
 <br></br>
 > [!NOTE]  
-> There's a desktop version built with Tauri. You can download it here: https://1codeweb.netlify.app/
+> There's a desktop version built with Tauri. You can try it here: https://1codeweb.netlify.app/
 
   ## Instalation
 
