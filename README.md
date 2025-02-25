@@ -19,6 +19,7 @@
 - Code formatting with Prettier 
 - Share code via URL
 - Typescript
+- Cascadia Code FontFamily
 
 ### 💻 Builded with
 ``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64`` ``Prettier``
