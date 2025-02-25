@@ -1,33 +1,33 @@
 
 <div align="center">  
-  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=100>
-<h1>One Code | JS Playground</h1>
+
+<h1> One Code Playground</h1>
+  <img src= "https://github.com/user-attachments/assets/25f9b280-34fb-47a5-a949-49fc8e59866b" width=70>
 </div>
 
+<p font=26 align="center">A modern and dynamic JavaScript development environment.</p>
+ 
 
-Un entorno de desarrollo JavaScript moderno y dinámico que proporciona un espacio de juego para experimentar con código. Esta herramienta está diseñada para ayudar a los desarrolladores a probar y desarrollar código JavaScript/TypeScript de manera eficiente.
-
-#### 🔗 Demo en vivo: [onecode.paku.com.ar](https://onecode.paku.com.ar)
+#### 🔗 Live demo: [onecode.paku.com.ar](https://onecode.paku.com.ar)
 
 <kbd>
 <img src="https://github.com/user-attachments/assets/4361576b-1d00-4fee-a720-6e17e205bfaf" width="300" >
 </kbd>
 
-## 🌟 Características
-- Consola de Javascript
-- Fetching de data
-- Soporte para ES6+
-- Almacenamiento local y en Url para guardar código
-- Themes
-- Formateo de codigo
-- Sharing Code
+## 🌟 Features
+- Javascript Console
+- Data Fetching
+- Support ES6+
+- Save your code in the Local storage 
+- Code format with prettier
+- Sharing Code by the url
 
-## 🛠️ Construido Con 
-``React`` ``TypeScript`` ``Monaco`` ``Tailwind CSS`` ``Vite``
+## 🛠️ Builded with
+``React`` ``TypeScript`` ``Monaco`` ``Tailwind`` ``Vite`` ``Vitest`` ``js-base64``
 
-  ## Instalación
+  ## Instalation
 
-#### clonar repo
+#### Clone the repo
 ````
 git clone https://github.com/pa-ku/one_code.git
 ````
