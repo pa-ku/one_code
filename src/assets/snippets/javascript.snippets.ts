@@ -1,4 +1,4 @@
-const jsSnippets = [
+export const jsSnippets = [
   {
     key: 'clg',
     content: 'console.log(${1});',
@@ -59,14 +59,3 @@ const jsSnippets = [
     description: 'Group an array of objects by a key.',
   },
 ]
-
-export const javascriptSnippets = (monaco: any) =>
-  jsSnippets.map(({ key, content, description }) => ({
-    label: key,
-    kind: monaco.languages.CompletionItemKind.Snippet,
-    insertText: content,
-    insertTextRules:
-      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-    documentation: description,
-    range: monaco.Range.fromPositions(monaco.Position.create(0, 0)),
-  }))
