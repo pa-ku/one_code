@@ -1,22 +1,22 @@
-import { secureFetch } from './secureFetch'
+import { secureFetch } from "./secureFetch";
 
 interface ExecutionContext {
-  console: Console
-  fetch: typeof secureFetch
+  console: Console;
+  fetch: typeof secureFetch;
 }
 
 export function createExecutionContext(
-  consoleInstance: Console
+  consoleInstance: Console,
 ): ExecutionContext {
   return {
     console: consoleInstance,
     fetch: secureFetch,
-  }
+  };
 }
 
 export async function executeCode(
   code: string,
-  context: ExecutionContext
+  context: ExecutionContext,
 ): Promise<void> {
   const wrappedCode = `
     return async function() {
@@ -28,11 +28,11 @@ export async function executeCode(
         console.error('Error executing code:', error);
       }
     }
-  `
+  `;
   try {
-    const fn = new Function(wrappedCode)()
-    await fn(context)
+    const fn = new Function(wrappedCode)();
+    await fn(context);
   } catch (error) {
-    context.console.error('Error creating function:', error)
+    context.console.error("Error creating function:", error);
   }
 }

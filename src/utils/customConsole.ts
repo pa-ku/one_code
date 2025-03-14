@@ -1,28 +1,28 @@
-type ConsoleCallback = (message: string) => void
+type ConsoleCallback = (message: string) => void;
 
 class CustomConsole {
-  private callback: ConsoleCallback
+  private callback: ConsoleCallback;
 
   constructor(callback: ConsoleCallback) {
-    this.callback = callback
+    this.callback = callback;
   }
 
-  log(...args: any[]) {
+  log(...args: unknown[]) {
     const message = args
       .map((arg) =>
-        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+        typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg),
       )
-      .join(' ')
-    this.callback(`${message}`)
+      .join(" ");
+    this.callback(`${message}`);
   }
 
-  error(...args: any[]) {
+  error(...args: unknown[]) {
     const message = args
       .map((arg) => (arg instanceof Error ? arg.message : String(arg)))
-      .join(' ')
-    this.callback(`${message}`)
+      .join(" ");
+    this.callback(`${message}`);
   }
 }
 
 export const createCustomConsole = (callback: ConsoleCallback) =>
-  new CustomConsole(callback)
+  new CustomConsole(callback);

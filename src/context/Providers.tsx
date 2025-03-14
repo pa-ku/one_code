@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
-import { ConfigProvider } from './ConfigContext'
-import { ThemeProvider } from './ThemeContext'
+import { ReactNode } from "react";
+import { ConfigProvider } from "./ConfigContext";
+import { ThemeProvider } from "./ThemeContext";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
@@ -9,5 +9,5 @@ export default function Providers({ children }: { children: ReactNode }) {
         <ThemeProvider>{children}</ThemeProvider>
       </ConfigProvider>
     </>
-  )
+  );
 }

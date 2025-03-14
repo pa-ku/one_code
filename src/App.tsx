@@ -12,6 +12,14 @@ import { createExecutionContext, executeCode } from "./utils/codeExecutor";
 import useManageCode from "./hooks/useManageCode";
 import { EditorHeader } from "./components/EditorHeader";
 
+/**
+ * The main app component.
+ *
+ * Responsible for rendering the console, editor, and resize handle,
+ * as well as handling user input and executing code.
+ *
+ * @returns The main app component.
+ */
 export default function App() {
   const { replaceUrl, saveCodeInLocal, setCode, code } = useManageCode();
 
@@ -27,7 +35,7 @@ export default function App() {
       const context = createExecutionContext(customConsole);
       await executeCode(input, context);
     },
-    [addToHistory, clearHistory]
+    [addToHistory, clearHistory],
   );
   const executeWithButton = useCallback(() => {
     handleExecution(code);

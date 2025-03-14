@@ -36,20 +36,17 @@ export const handleEditorMount: OnMount = (editor, monaco) => {
           insertTextRules:
             monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           documentation: snippet.description,
-          // Opcional: detalle adicional
-          detail: "Snippet: " + snippet.key,
-          // Opcional: rango de texto a reemplazar
           range: new monaco.Range(
             position.lineNumber,
             position.column - 1,
             position.lineNumber,
-            position.column
+            position.column,
           ),
         }));
 
         return { suggestions };
       },
-    }
+    },
   );
 
   //Format with CTRL + Q
@@ -90,6 +87,6 @@ export const handleEditorMount: OnMount = (editor, monaco) => {
           return [];
         }
       },
-    }
+    },
   );
 };

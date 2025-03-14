@@ -1,19 +1,19 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from "react";
 
 export function useConsoleHistory() {
-  const [history, setHistory] = useState<string[]>([])
+  const [history, setHistory] = useState<string[]>([]);
 
   const addToHistory = useCallback((message: string) => {
-    setHistory((prev) => [...prev, message])
-  }, [])
+    setHistory((prev) => [...prev, message]);
+  }, []);
 
   const clearHistory = useCallback(() => {
-    setHistory([])
-  }, [])
+    setHistory([]);
+  }, []);
 
   return {
     history,
     addToHistory,
     clearHistory,
-  }
+  };
 }

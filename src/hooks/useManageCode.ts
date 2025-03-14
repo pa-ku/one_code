@@ -1,73 +1,73 @@
-import { decode, encode } from 'js-base64'
-import { useConfig } from '../context/ConfigContext'
-import { useCallback, useEffect, useState } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
+import { decode, encode } from "js-base64";
+import { useConfig } from "../context/ConfigContext";
+import { useCallback, useEffect, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export default function useManageCode() {
-  const [code, setCode] = useState('')
-  const { saveCode } = useConfig()
+  const [code, setCode] = useState("");
+  const { saveCode } = useConfig();
 
   const replaceUrl = useCallback(
-    (code) => {
+    (code: string) => {
       if (saveCode) {
-        const hashedCode = encode(code)
-        window.history.replaceState({}, '', `/${hashedCode}`)
+        const hashedCode = encode(code);
+        window.history.replaceState({}, "", `/${hashedCode}`);
       }
     },
-    [saveCode]
-  )
+    [saveCode],
+  );
 
   function clearCode() {
-    setCode('')
-    localStorage.setItem('urlPath', '')
-    replaceUrl('')
-    window.location.reload()
+    setCode("");
+    localStorage.setItem("urlPath", "");
+    replaceUrl("");
+    window.location.reload();
   }
 
   const saveUrlOnLoad = useCallback(() => {
-    const urlPath = window.location.pathname.slice(1)
-    if (urlPath === 'undefined' || urlPath === '' || urlPath === 'null') {
-      window.history.replaceState({}, '', `/`)
-      localStorage.setItem('urlPath', '')
-      return
+    const urlPath = window.location.pathname.slice(1);
+    if (urlPath === "undefined" || urlPath === "" || urlPath === "null") {
+      window.history.replaceState({}, "", `/`);
+      localStorage.setItem("urlPath", "");
+      return;
     }
     if (!urlPath) {
-      const localPath = localStorage.getItem('urlPath')
-      if (!localPath) return console.log('No hay local path')
+      const localPath = localStorage.getItem("urlPath");
+      if (!localPath) return console.log("No hay local path");
       else {
-        window.history.replaceState({}, '', `/${localPath}`)
-        const decodedCode = decode(localPath)
-        setCode(decodedCode)
+        window.history.replaceState({}, "", `/${localPath}`);
+        const decodedCode = decode(localPath);
+        setCode(decodedCode);
       }
     } else {
       if (saveCode) {
-        localStorage.setItem('urlPath', urlPath)
+        localStorage.setItem("urlPath", urlPath);
       }
-      const decodedCode = decode(urlPath)
-      setCode(decodedCode)
+      const decodedCode = decode(urlPath);
+      setCode(decodedCode);
     }
-  }, [])
+  }, []);
 
   const saveCodeInLocal = useDebouncedCallback((value) => {
     if (saveCode) {
-      const encodedData = encode(value)
-      localStorage.setItem('urlPath', encodedData)
+      const encodedData = encode(value);
+      localStorage.setItem("urlPath", encodedData);
     }
-  }, 700)
+  }, 700);
 
   useEffect(() => {
     if (saveCode) {
-      saveCodeInLocal(code)
-      return
+      saveCodeInLocal(code);
+      return;
     } else {
-      localStorage.setItem('urlPath', '')
-      return
+      localStorage.setItem("urlPath", "");
+      return;
     }
-  }, [saveCode])
+  }, [saveCode]);
 
   useEffect(() => {
-    saveUrlOnLoad()
-  }, [])
+    saveUrlOnLoad();
+  }, []);
 
-  return { replaceUrl, saveCodeInLocal, setCode, code, clearCode }
+  return { replaceUrl, saveCodeInLocal, setCode, code, clearCode };
 }

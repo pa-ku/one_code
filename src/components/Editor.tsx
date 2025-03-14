@@ -16,7 +16,7 @@ export function Editor({ code, onChange }: EditorProps) {
         <div className="flex-1 bg-background-400 duration-500">
           <MonacoEditor
             height="100%"
-            defaultLanguage="typescript"
+            defaultLanguage="javascript"
             theme="mosqueta-dark"
             value={code}
             onChange={onChange}

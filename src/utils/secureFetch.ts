@@ -1,4 +1,4 @@
-const FETCH_TIMEOUT = 5000; 
+const FETCH_TIMEOUT = 5000;
 
 interface FetchConfig {
   timeout?: number;
@@ -6,13 +6,13 @@ interface FetchConfig {
 }
 
 export async function secureFetch(
-  url: string, 
-  options: RequestInit = {}, 
-  config: FetchConfig = {}
+  url: string,
+  options: RequestInit = {},
+  config: FetchConfig = {},
 ): Promise<Response> {
   const controller = new AbortController();
   const timeout = config.timeout || FETCH_TIMEOUT;
-  
+
   const timeoutId = setTimeout(() => {
     controller.abort();
   }, timeout);
@@ -23,8 +23,8 @@ export async function secureFetch(
       signal: controller.signal,
       headers: {
         ...options.headers,
-        ...config.headers
-      }
+        ...config.headers,
+      },
     });
 
     if (!response.ok) {
