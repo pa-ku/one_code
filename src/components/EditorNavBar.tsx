@@ -34,14 +34,17 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
   const isDesktop = window.__TAURI__ !== undefined;
   return (
     <div
-      className={`fixed  left-0 top-0 w-14 py-3  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
+      className={`fixed  left-0 top-0 px-2 py-3  duration-500 z-50 h-screen bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
     >
       <div className=" flex items-center  flex-col gap-4">
-        <Button onClick={onExecute} msjOnHover="Execute code">
+        <Button onClick={onExecute} msjOnHover="Run code">
           <Play size={20} />
         </Button>
 
-        <Button onClick={copyToClipboard} msjOnHover="Copy url">
+        <Button
+          onClick={copyToClipboard}
+          msjOnHover={`${isDesktop ? "Share Code" : "Copy url"}  `}
+        >
           <Share2 size={20} />
           <p
             className={`${
@@ -51,12 +54,13 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
             Url copied
           </p>
         </Button>
-        <Button onClick={clearCode} msjOnHover="Clear editor">
-          <Trash2 size={20} />
-        </Button>
+        {!isDesktop && (
+          <Button onClick={clearCode} msjOnHover="Clear editor">
+            <Trash2 size={20} />
+          </Button>
+        )}
 
         <div className="h-full"></div>
-        <p className="text-background-100 text-xs ">Config</p>
 
         <Checkbox
           checked={autoRun}
@@ -65,15 +69,15 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
         >
           <RefreshCcw size={20} />
         </Checkbox>
-        <Checkbox
-          checked={saveCode}
-          onChange={(e) => setSaveCode(e.target.checked)}
-          onHover="Save in url"
-        >
-          <Cloud size={20}></Cloud>
-        </Checkbox>
-
-        <p className="text-background-100 text-xs ">Layout</p>
+        {!isDesktop && (
+          <Checkbox
+            checked={saveCode}
+            onChange={(e) => setSaveCode(e.target.checked)}
+            onHover="Save in url"
+          >
+            <Cloud size={20}></Cloud>
+          </Checkbox>
+        )}
 
         <Checkbox
           checked={lineNum}
@@ -91,13 +95,7 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
         </Checkbox>
         {!isDesktop && (
           <Button msjOnHover="Download desktop app">
-            <a
-            target="_Blank"
-              href={
-                "https://drive.usercontent.google.com/download?id=1A2V0NnkS3syYBKZiexk9y_JsjxCpy67-&export=download&authuser=0&confirm=t&uuid=86ee9d39-d65f-42e0-9c13-434f59e487f0&at=AEz70l5nCq_EE5sikgT0gKF6APvX%3A1741971635313"
-              }
-              download
-            >
+            <a target="_Blank" href={"./onecode_0.1.0_x64-setup.exe"} download>
               <Download></Download>
             </a>
           </Button>

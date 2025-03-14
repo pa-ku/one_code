@@ -58,7 +58,8 @@ export default function App() {
   }
 
   return (
-    <div className="h-screen w-screen relative   bg-gray-900 text-white overflow-hidden">
+    <div className="h-screen w-screen relative  bg-background-400 text-white overflow-hidden">
+      <EditorNavBar onExecute={executeWithButton} />
       <div
         id="panels-container"
         className={`flex w-full h-full  pl-14   select-none ${
@@ -66,7 +67,7 @@ export default function App() {
         }`}
         style={{ userSelect: "none" }}
       >
-        <EditorNavBar onExecute={executeWithButton} />
+        
 
         <div
           className="bg-gray-800 overflow-hidden"
