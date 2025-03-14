@@ -7,18 +7,20 @@ import {
   Boxes,
   Share2,
   Trash2,
+  Download,
 } from "lucide-react";
 import icon from "/onecode.webp";
 import { useConfig } from "../context/ConfigContext";
 import Checkbox from "./Checkbox";
 import { useClipboard } from "../hooks/useClipboard";
 import useManageCode from "../hooks/useManageCode";
+import Button from "./ui/Button";
 
-interface EditorHeaderProps {
+interface EditorNavBarProps {
   onExecute: () => void;
 }
 
-export function EditorHeader({ onExecute }: EditorHeaderProps) {
+export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
   const {
     autoRun,
     saveCode,
@@ -28,8 +30,7 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
     setLineNum,
     lineNum,
     invertLayout,
-    formatOnSave,
-    setFormatOnSave,
+   
   } = useConfig();
 
   const { isCopied, copyToClipboard } = useClipboard();
@@ -37,47 +38,26 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
 
   return (
     <div
-      className={`fixed  left-0 top-0 w-14  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
+      className={`fixed  left-0 top-0 w-14 py-3  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
     >
-      <a
-        target="blank"
-        rel="noopener noreferrer"
-        title="1code web"
-        href="https://1codeweb.netlify.app/"
-        className="mb-10 mt-3 size-7 flex items-center justify-center font-bold"
-      >
-        <img src={icon} alt="" className="size-full object-contain" />
-      </a>
       <div className=" flex items-center  flex-col gap-4">
-        <button
-          onClick={onExecute}
-          className="flex items-center text-md gap-2 p-1  rounded text-accent"
-          title="Execute code"
-        >
+        <Button onClick={onExecute} msjOnHover="Execute code">
           <Play size={20} />
-        </button>
+        </Button>
 
-        <button
-          onClick={copyToClipboard}
-          className="flex relative items-center text-md gap-2 p-1  rounded text-accent"
-          title="Copy url"
-        >
+        <Button onClick={copyToClipboard} msjOnHover="Copy url">
           <Share2 size={20} />
           <p
             className={`${
               isCopied ? "opacity-100" : " opacity-0 "
-            } pointer-events-none z-10  duration-300 absolute left-0 border-background-100 border w-max bg-black rounded-lg p-2 `}
+            } pointer-events-none z-20  duration-300 absolute left-0 top-8 border-background-100 border w-max bg-black rounded-lg p-2 `}
           >
             Url copied
           </p>
-        </button>
-        <button
-          onClick={clearCode}
-          className="flex items-center text-md gap-2 p-1  rounded text-accent"
-          title="Clear editor"
-        >
+        </Button>
+        <Button onClick={clearCode} msjOnHover="Clear editor">
           <Trash2 size={20} />
-        </button>
+        </Button>
 
         <div className="h-full"></div>
         <p className="text-background-100 text-xs ">Config</p>
@@ -97,14 +77,6 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
           <Cloud size={20}></Cloud>
         </Checkbox>
 
-        <Checkbox
-          checked={formatOnSave}
-          onChange={(e) => setFormatOnSave(e.target.checked)}
-          onHover="Format on save"
-        >
-          <Boxes size={20}></Boxes>
-        </Checkbox>
-
         <p className="text-background-100 text-xs ">Layout</p>
 
         <Checkbox
@@ -121,6 +93,9 @@ export function EditorHeader({ onExecute }: EditorHeaderProps) {
         >
           <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
+        <Button msjOnHover="Download desktop app">
+          <Download onClick={() => window.open("https://1codeweb.netlify.app/")}></Download>
+        </Button>
       </div>
     </div>
   );

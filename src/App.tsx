@@ -10,7 +10,7 @@ import { usePanelResize } from "./hooks/usePanelResize";
 import { createExecutionContext, executeCode } from "./utils/codeExecutor";
 
 import useManageCode from "./hooks/useManageCode";
-import { EditorHeader } from "./components/EditorHeader";
+import EditorNavBar from "./components/EditorNavBar";
 
 /**
  * The main app component.
@@ -35,7 +35,7 @@ export default function App() {
       const context = createExecutionContext(customConsole);
       await executeCode(input, context);
     },
-    [addToHistory, clearHistory],
+    [addToHistory, clearHistory]
   );
   const executeWithButton = useCallback(() => {
     handleExecution(code);
@@ -66,7 +66,7 @@ export default function App() {
         }`}
         style={{ userSelect: "none" }}
       >
-        <EditorHeader onExecute={executeWithButton} />
+        <EditorNavBar onExecute={executeWithButton} />
 
         <div
           className="bg-gray-800 overflow-hidden"

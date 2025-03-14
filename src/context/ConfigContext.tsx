@@ -41,8 +41,7 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
   const [saveCode, setSaveCode] = useLocalStorage("saveCode", true);
   const [invertLayout, setInvertLayout] = useLocalStorage("layout", false);
   const [lineNum, setLineNum] = useLocalStorage("lineNum", true);
-  const [formatOnSave, setFormatOnSave] = useLocalStorage("formatOnSave", true);
-  const [fontSize, setFontSize] = useLocalStorage("formatOnSave", 18);
+  const [fontSize, setFontSize] = useLocalStorage("fontSize", 18);
 
   const contextValue = useMemo(
     () => ({
@@ -57,12 +56,10 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
       invertLayout,
       lineNum,
       setLineNum,
-      setFormatOnSave,
-      formatOnSave,
       setFontSize,
       fontSize,
     }),
-    [autoRun, openConfig, saveCode, invertLayout, lineNum, formatOnSave],
+    [autoRun, openConfig, saveCode, invertLayout, lineNum, fontSize],
   );
 
   return (
