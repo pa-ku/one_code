@@ -4,18 +4,15 @@ import {
   Cloud,
   ArrowLeftRight,
   ListOrdered,
-  Boxes,
   Share2,
   Trash2,
   Download,
 } from "lucide-react";
-import icon from "/onecode.webp";
 import { useConfig } from "../context/ConfigContext";
 import Checkbox from "./Checkbox";
 import { useClipboard } from "../hooks/useClipboard";
 import useManageCode from "../hooks/useManageCode";
 import Button from "./ui/Button";
-
 interface EditorNavBarProps {
   onExecute: () => void;
 }
@@ -30,12 +27,11 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
     setLineNum,
     lineNum,
     invertLayout,
-   
   } = useConfig();
 
   const { isCopied, copyToClipboard } = useClipboard();
   const { clearCode } = useManageCode();
-
+  const isDesktop = window.__TAURI__ !== undefined;
   return (
     <div
       className={`fixed  left-0 top-0 w-14 py-3  duration-500 z-50 h-screen border-b bg-background-500  border-gray-700 flex items-center justify-start flex-col `}
@@ -93,9 +89,19 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
         >
           <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
-        <Button msjOnHover="Download desktop app">
-          <Download onClick={() => window.open("https://1codeweb.netlify.app/")}></Download>
-        </Button>
+        {!isDesktop && (
+          <Button msjOnHover="Download desktop app">
+            <a
+            target="_Blank"
+              href={
+                "https://drive.usercontent.google.com/download?id=1A2V0NnkS3syYBKZiexk9y_JsjxCpy67-&export=download&authuser=0&confirm=t&uuid=86ee9d39-d65f-42e0-9c13-434f59e487f0&at=AEz70l5nCq_EE5sikgT0gKF6APvX%3A1741971635313"
+              }
+              download
+            >
+              <Download></Download>
+            </a>
+          </Button>
+        )}
       </div>
     </div>
   );

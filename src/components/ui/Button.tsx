@@ -16,7 +16,7 @@ export default function Button({
     >
       {children}
       <p
-        className={`group-hover:opacity-100 opacity-0 top-8 pointer-events-none z-10  duration-300 absolute left-0 border-background-100 border w-max bg-black rounded-lg p-2`}
+        className={`group-hover:opacity-100 opacity-0 text-sm top-8 pointer-events-none z-10  duration-300 absolute left-0 border-background-100 border w-max bg-background-500 rounded-lg p-2`}
       >
         {msjOnHover}
       </p>
