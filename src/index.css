@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Cascadia code";
-  src: url(./assets/fonts/CascadiaMono.woff2);
-}
 
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url(./assets/fonts/JetBrainsMono-SemiBold.woff2);
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Cascadia code";
+  font-family: "JetBrains Mono";
 }
 input[type=number] {
   -moz-appearance: textfield;

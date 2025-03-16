@@ -42,7 +42,7 @@ export default function App() {
       return;
     }
     replaceUrl("/");
-  }, [debouncedCode, saveCode]);
+  }, [debouncedCode, saveCode, handleExecution, replaceUrl, autoRun]);
 
   function handleEditorChange(value: string | undefined) {
     saveCodeInLocal(value);
@@ -65,7 +65,7 @@ export default function App() {
           <Editor
             code={code}
             onChange={handleEditorChange}
-            executeWithButton={executeWithButton}
+ 
           />
         </section>
         <ResizeHandle onMouseDown={handleMouseDown} />

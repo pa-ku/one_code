@@ -5,6 +5,7 @@ import { handleEditorMount } from "../utils/handleEditorMount.ts";
 interface EditorProps {
   code: string;
   onChange: (value: string | undefined) => void;
+
 }
 
 export function Editor({ code, onChange }: EditorProps) {
@@ -12,7 +13,6 @@ export function Editor({ code, onChange }: EditorProps) {
 
   return (
     <div className="h-full relative flex flex-col">
-    
       <div className={`h-screen flex w-full duration-500`}>
         <div className="flex-1 bg-background-400 duration-500">
           <MonacoEditor

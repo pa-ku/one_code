@@ -46,7 +46,7 @@ export default function useManageCode() {
       const decodedCode = decode(urlPath);
       setCode(decodedCode);
     }
-  }, []);
+  }, [saveCode]);
 
   const saveCodeInLocal = useDebouncedCallback((value) => {
     if (saveCode) {
@@ -63,11 +63,11 @@ export default function useManageCode() {
       localStorage.setItem("urlPath", "");
       return;
     }
-  }, [saveCode]);
+  }, [saveCode,code,saveCodeInLocal]);
 
   useEffect(() => {
     saveUrlOnLoad();
-  }, []);
+  }, [saveCode,saveUrlOnLoad]);
 
   return { replaceUrl, saveCodeInLocal, setCode, code, clearCode };
 }

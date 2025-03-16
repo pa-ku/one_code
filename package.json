@@ -9,7 +9,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "tb":"tauri build",
+    "td":"tauri dev"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
