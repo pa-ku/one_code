@@ -86,7 +86,7 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
         </Checkbox>
         {!isDesktop && (
           <Button msjOnHover="Download desktop app">
-            <a target="_Blank" href={"./onecode_0.1.0_x64-setup.exe"} download>
+            <a target="_Blank" href={"./onecode_x64-setup.exe"} download>
               <Download></Download>
             </a>
           </Button>
