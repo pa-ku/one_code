@@ -17,7 +17,7 @@
 ### 🌟 Features
 
 - JavaScript Console
-- Desktop app for windows with tauri (JUST 1.5mb)
+- Desktop app for windows with tauri **( Just 3.9MB installed )**
 - Data Fetching
 - Supports ES6+
 - Save your code in Local Storage
