@@ -1,9 +1,9 @@
 [package]
 name = "onecode"
-version = "0.1.0"
-description = "A modern javascript playground"
+version = "1.0.0"
+description = "A modern and dynamic javascript playground"
 authors = ["you"]
-license = ""
+license = "MIT"
 repository = ""
 edition = "2021"
 rust-version = "1.60"

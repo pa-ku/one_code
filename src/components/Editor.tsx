@@ -1,5 +1,5 @@
 import MonacoEditor from "@monaco-editor/react";
-import { useConfig } from "../context/ConfigContext";
+import { useConfig } from "../hooks/useConfig";
 import { handleEditorMount } from "../utils/handleEditorMount.ts";
 
 interface EditorProps {
@@ -8,10 +8,11 @@ interface EditorProps {
 }
 
 export function Editor({ code, onChange }: EditorProps) {
-  const { lineNum, formatOnSave } = useConfig();
+  const { lineNum, fontSize } = useConfig();
 
   return (
-    <div className="h-full  relative flex flex-col">
+    <div className="h-full relative flex flex-col">
+    
       <div className={`h-screen flex w-full duration-500`}>
         <div className="flex-1 bg-background-400 duration-500">
           <MonacoEditor
@@ -22,7 +23,7 @@ export function Editor({ code, onChange }: EditorProps) {
             onChange={onChange}
             options={{
               minimap: { enabled: false },
-              fontSize: 18,
+              fontSize: fontSize,
               lineNumbers: lineNum ? "on" : "off",
               roundedSelection: false,
               scrollBeyondLastLine: false,
@@ -32,8 +33,6 @@ export function Editor({ code, onChange }: EditorProps) {
               snippetSuggestions: "top",
               tabSize: 2,
               autoIndent: "full",
-              formatOnPaste: formatOnSave,
-              formatOnType: formatOnSave,
               padding: { top: 10, bottom: 10 },
             }}
             onMount={handleEditorMount}

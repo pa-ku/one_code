@@ -22,7 +22,7 @@ export default function Checkbox({
           checked={checked}
           onChange={onChange}
         />
-        <p className="rounded-lg flex items-center justify-center gap-1 text-slate-400 bg-background-500 border border-background-200 px-1 py-1 peer-checked:bg-primary-800/40 peer-checked:text-gray-100">
+        <p className="rounded-lg flex items-center justify-center gap-1 text-slate-400 bg-background-500 border border-background-200 px-1 py-1 peer-checked:bg-background-300 peer-checked:text-slate-200">
           {children}
         </p>
         {onHover && (

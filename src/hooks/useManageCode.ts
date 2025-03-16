@@ -1,5 +1,5 @@
 import { decode, encode } from "js-base64";
-import { useConfig } from "../context/ConfigContext";
+import { useConfig } from "../hooks/useConfig";
 import { useCallback, useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 

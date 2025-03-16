@@ -2,12 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import Providers from "./context/Providers.tsx";
+import { ConfigProvider } from "./context/ConfigContext.tsx";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Providers>
+    <ConfigProvider>
       <App />
-    </Providers>
+    </ConfigProvider>
   </StrictMode>,
 );

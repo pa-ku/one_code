@@ -5,27 +5,19 @@ import { ResizeHandle } from "./components/ResizeHandle";
 import { createCustomConsole } from "./utils/customConsole";
 import { useDebounce } from "./hooks/useDebounce";
 import { useConsoleHistory } from "./hooks/useConsoleHistory";
-import { useConfig } from "./context/ConfigContext";
+import { useConfig } from "./hooks/useConfig";
 import { usePanelResize } from "./hooks/usePanelResize";
 import { createExecutionContext, executeCode } from "./utils/codeExecutor";
 
 import useManageCode from "./hooks/useManageCode";
-import EditorNavBar from "./components/EditorNavBar";
+import EditorNavBar from "./components/editor_nav/EditorNavBar";
 
-/**
- * The main app component.
- *
- * Responsible for rendering the console, editor, and resize handle,
- * as well as handling user input and executing code.
- *
- * @returns The main app component.
- */
 export default function App() {
   const { replaceUrl, saveCodeInLocal, setCode, code } = useManageCode();
 
   const { history, addToHistory, clearHistory } = useConsoleHistory();
   const { leftPanelWidth, handleMouseDown } = usePanelResize();
-  const { autoRun, invertLayout, saveCode } = useConfig();
+  const { autoRun, saveCode } = useConfig();
   const debouncedCode = useDebounce(code, 300);
 
   const handleExecution = useCallback(
@@ -60,23 +52,13 @@ export default function App() {
   return (
     <div className="h-screen w-screen relative  bg-background-400 text-white overflow-hidden">
       <EditorNavBar onExecute={executeWithButton} />
-      <div
+      <main
         id="panels-container"
-        className={`flex w-full h-full  pl-14   select-none ${
-          invertLayout ? "flex-row" : "flex-row-reverse"
-        }`}
+        className="flex w-full h-full  pl-10  select-none" 
         style={{ userSelect: "none" }}
       >
-        
-
-        <div
-          className="bg-gray-800 overflow-hidden"
-          style={{ width: `${leftPanelWidth}%` }}
-        >
-          <Console history={history} />
-        </div>
-        <ResizeHandle onMouseDown={handleMouseDown} />
-        <div
+    
+        <section
           className="bg-gray-800 overflow-hidden"
           style={{ width: `${100 - leftPanelWidth}%` }}
         >
@@ -85,8 +67,16 @@ export default function App() {
             onChange={handleEditorChange}
             executeWithButton={executeWithButton}
           />
-        </div>
-      </div>
+        </section>
+        <ResizeHandle onMouseDown={handleMouseDown} />
+
+        <section
+          className="bg-gray-800 overflow-hidden"
+          style={{ width: `${leftPanelWidth}%` }}
+        >
+          <Console history={history} />
+        </section>
+      </main>
     </div>
   );
 }

@@ -1,35 +1,24 @@
-import { createContext, ReactNode, useContext, useMemo } from "react";
+
+import { createContext, ReactNode, useMemo } from "react";
 import useLocalStorage from "use-local-storage";
 
 export const ConfigContext = createContext<ConfigContextType | undefined>(
   undefined,
 );
 
-type ConfigContextType = {
+export type ConfigContextType = {
   autoRun: boolean;
   setAutoRun: (value: boolean) => void;
   openMenu: () => void;
   closeMenu: () => void;
   openConfig: boolean;
   setSaveCode: (value: boolean) => void;
-  setInvertLayout: (value: boolean) => void;
   lineNum: boolean;
   setLineNum: (value: boolean) => void;
-  invertLayout: boolean;
   saveCode: boolean;
-  formatOnSave: boolean;
-  setFormatOnSave: (value: boolean) => void;
   fontSize: number;
-  setFontSize: (value: number) => number;
+  setFontSize: (value: number) => void;
 };
-
-export function useConfig(): ConfigContextType {
-  const context = useContext(ConfigContext);
-  if (!context) {
-    throw new Error("useConfigContext debe estar dentro de un provider");
-  }
-  return context;
-}
 
 type ConfigProviderProps = {
   children: ReactNode;
@@ -39,7 +28,6 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
   const [openConfig, setOpenConfig] = useLocalStorage("configOpen", false);
   const [autoRun, setAutoRun] = useLocalStorage("autoRun", true);
   const [saveCode, setSaveCode] = useLocalStorage("saveCode", true);
-  const [invertLayout, setInvertLayout] = useLocalStorage("layout", false);
   const [lineNum, setLineNum] = useLocalStorage("lineNum", true);
   const [fontSize, setFontSize] = useLocalStorage("fontSize", 18);
 
@@ -52,14 +40,12 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
       openConfig,
       saveCode,
       setSaveCode,
-      setInvertLayout,
-      invertLayout,
       lineNum,
       setLineNum,
-      setFontSize,
       fontSize,
+      setFontSize,
     }),
-    [autoRun, openConfig, saveCode, invertLayout, lineNum, fontSize],
+    [autoRun, openConfig,setSaveCode,setOpenConfig, saveCode, lineNum, fontSize, setAutoRun, setLineNum, setFontSize],
   );
 
   return (
@@ -68,3 +54,5 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
     </ConfigContext.Provider>
   );
 }
+
+

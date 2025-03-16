@@ -1,10 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
-import { useConfig } from "../context/ConfigContext";
+
 
 export function usePanelResize(initialWidth = 50) {
   const [leftPanelWidth, setLeftPanelWidth] = useState(initialWidth);
   const [isDragging, setIsDragging] = useState(false);
-  const { invertLayout } = useConfig();
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     setIsDragging(true);
@@ -19,9 +18,7 @@ export function usePanelResize(initialWidth = 50) {
       if (!container) return;
 
       const containerRect = container.getBoundingClientRect();
-      const newWith = invertLayout
-        ? ((e.clientX - containerRect.left) / containerRect.width) * 100
-        : ((containerRect.right - e.clientX) / containerRect.width) * 100;
+      const newWith =  ((containerRect.right - e.clientX) / containerRect.width) * 100;
 
       const clampedWidth = Math.min(Math.max(newWith, 20), 80);
       setLeftPanelWidth(clampedWidth);

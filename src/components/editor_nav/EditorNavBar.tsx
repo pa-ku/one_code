@@ -2,17 +2,18 @@ import {
   Play,
   RefreshCcw,
   Cloud,
-  ArrowLeftRight,
   ListOrdered,
   Share2,
   Trash2,
   Download,
 } from "lucide-react";
-import { useConfig } from "../context/ConfigContext";
-import Checkbox from "./Checkbox";
-import { useClipboard } from "../hooks/useClipboard";
-import useManageCode from "../hooks/useManageCode";
-import Button from "./ui/Button";
+import { useConfig } from "../../hooks/useConfig";
+import Checkbox from "../ui/Checkbox";
+import { useClipboard } from "../../hooks/useClipboard";
+import useManageCode from "../../hooks/useManageCode";
+import Button from "../ui/Button";
+import FontButton from "./FontButton";
+
 interface EditorNavBarProps {
   onExecute: () => void;
 }
@@ -23,10 +24,8 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
     saveCode,
     setSaveCode,
     setAutoRun,
-    setInvertLayout,
     setLineNum,
     lineNum,
-    invertLayout,
   } = useConfig();
 
   const { isCopied, copyToClipboard } = useClipboard();
@@ -60,8 +59,6 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
           </Button>
         )}
 
-        <div className="h-full"></div>
-
         <Checkbox
           checked={autoRun}
           onChange={(e) => setAutoRun(e.target.checked)}
@@ -81,17 +78,11 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
 
         <Checkbox
           checked={lineNum}
+          
           onChange={(e) => setLineNum(e.target.checked)}
           onHover="Line Numbers"
         >
           <ListOrdered size={20}></ListOrdered>
-        </Checkbox>
-        <Checkbox
-          checked={invertLayout}
-          onChange={(e) => setInvertLayout(e.target.checked)}
-          onHover="Invert Layot"
-        >
-          <ArrowLeftRight size={20}></ArrowLeftRight>
         </Checkbox>
         {!isDesktop && (
           <Button msjOnHover="Download desktop app">
@@ -100,6 +91,10 @@ export default function EditorNavBar({ onExecute }: EditorNavBarProps) {
             </a>
           </Button>
         )}
+ 
+ 
+      
+        <FontButton/>
       </div>
     </div>
   );

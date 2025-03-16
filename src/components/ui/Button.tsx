@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
 export default function Button({
   children,
@@ -7,8 +7,7 @@ export default function Button({
 }: {
   msjOnHover: string;
   children: ReactNode;
-  
-}) {
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       className="relative group flex items-center flex-row gap-1 justify-center rounded text-accent p-1"
