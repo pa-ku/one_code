@@ -34,8 +34,9 @@ export default function DownloadBtn() {
             <a
               target='_Blank'
               title='Download windows app'
-              href={'./setup/onecode_windows_v1.exe'}
-              download
+              href={
+                'https://drive.google.com/file/d/1y1JKM2s9QZhJU0y54CSyPL4XEVoE-egA/view?usp=drive_link'
+              }
               className='flex hover:bg-background-300 p-2 rounded-lg items-center gap-2'
             >
               <svg
@@ -52,7 +53,9 @@ export default function DownloadBtn() {
             </a>
             <a
               target='_Blank'
-              href={'./setup/onecode_linux_v1.deb'}
+              href={
+                'https://drive.google.com/file/d/1vLWEYm0ucbR3WrL8dOR_fiJbaVQU7ffi/view?usp=drive_link'
+              }
               download
               title='Download linux app'
               className='flex hover:bg-background-300 p-2 rounded-lg items-center gap-2'
